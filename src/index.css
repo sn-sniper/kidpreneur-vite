@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cairo:wght@200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-kidpreneur-offwhite: #F7F9FF;
+  --color-kidpreneur-yellow: #FCE06B;
+  --color-kidpreneur-lightblue: #A3C5EA;
+  --color-kidpreneur-slate: #426B85;
+  --color-kidpreneur-blue: #4696C8;
+  --color-kidpreneur-teal: #14BAA9;
+
+  --font-sans: "Raleway", "Almarai", sans-serif;
+  --font-display: "lazydog", "Cairo", sans-serif;
+}
+
+@font-face {
+  font-family: 'lazydog';
+  src: local('Comic Sans MS'); /* Fallback until lazydog font is provided */
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-kidpreneur-offwhite);
+  color: #1e293b;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,24 @@
+{
+    "ABOUT": {
+        "title": "Welcome to The Kidpreneur Journey",
+        "description": "Where curiosity meets creativity, and young minds are empowered to explore, build, and grow. We inspire children to discover their potential through hands-on experiences.",
+        "core_beliefs": [
+            "Learning should be interactive and hands-on, where mistakes are welcomed as essential parts of growth.",
+            "Curiosity is where innovation begins, spark it and extraordinary things happen.",
+            "We focus on future-focused skills to empower lasting creativity and adaptability."
+        ]
+    },
+    "MISSION": "Our mission is to inspire children to discover their full potential through engaging, hands-on experiences that build confidence, creativity, critical problem-solving, and an entrepreneurial mindset.",
+    "VISION": "We envision a world where every child is empowered to turn curiosity into action, developing the resilience, innovative mindset, and future-ready skills needed to shape tomorrow's world.",
+    "WHAT WE DO": {
+        "description": "We introduce children to essential, future-focused skills through interactive, experiential learning across key disciplines:",
+        "disciplines": {
+            "Entrepreneurship": "Empowering young minds with business fundamentals, leadership skills, financial literacy, and the confidence to turn ideas into reality.",
+            "Artificial Intelligence": "Demystifying modern technology by introducing kids to smart concepts and logical thinking through fun, age-appropriate tools.",
+            "Robotics": "Engaging children in hands-on building, coding, and problem-solving to bring interactive machines to life.",
+            "Healthy Habits": "Cultivating physical and mental well-being by teaching mindful daily routines, nutrition, and personal growth strategies.",
+            "Agriculture": "Connecting kids with nature through sustainable gardening practices, environmental awareness, and seed-to-table experiences.",
+            "And More": "Continuously introducing fresh, innovative learning modules designed to inspire every child's unique passion."
+        }
+    }
+}

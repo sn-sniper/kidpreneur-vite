@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1080" width="2400" height="1080">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eaf6ff"/>
+      <stop offset="0.52" stop-color="#f8f9fc"/>
+      <stop offset="1" stop-color="#fff8e6"/>
+    </linearGradient>
+    <linearGradient id="hill1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#bfe8dc"/>
+      <stop offset="1" stop-color="#8bd6d0"/>
+    </linearGradient>
+    <linearGradient id="hill2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d8edf5"/>
+      <stop offset="1" stop-color="#a9d9ee"/>
+    </linearGradient>
+    <linearGradient id="hill3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#cfeaf2"/>
+      <stop offset="1" stop-color="#8ecfe9"/>
+    </linearGradient>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="2400" height="1080" fill="url(#sky)"/>
+
+  <!-- Soft abstract sky shapes -->
+  <path d="M0 0H700C560 120 580 220 430 280C260 350 520 470 350 620C250 710 120 630 0 700Z"
+        fill="#dceefa" opacity=".72"/>
+  <path d="M0 0H310C430 150 300 260 170 290C50 320 100 500 0 560Z"
+        fill="#bfe3f4" opacity=".5"/>
+  <path d="M1730 0H2400V510C2220 460 2150 390 2200 270C2240 160 2050 150 1910 250C1800 330 1620 260 1660 150Z"
+        fill="#fff4ce" opacity=".58"/>
+
+  <!-- Gentle glows -->
+  <circle cx="2150" cy="135" r="170" fill="#ffe9a9" opacity=".45" filter="url(#blur)"/>
+  <circle cx="280" cy="320" r="160" fill="#b8e4f5" opacity=".35" filter="url(#blur)"/>
+
+  <!-- Clouds -->
+  <g fill="#fff" opacity=".72">
+    <path d="M300 330c0-34 28-62 62-62 12-42 50-72 95-72 48 0 87 34 97 80 9-4 19-6 29-6 40 0 72 32 72 72H300z"/>
+    <path d="M1640 720c0-42 34-76 76-76 15-51 61-87 116-87 59 0 107 41 119 96 11-5 23-7 36-7 49 0 89 40 89 89h-436z"/>
+  </g>
+
+  <!-- Sparkles and dots -->
+  <g fill="#fff">
+    <path d="M1550 160l8 24 24 8-24 8-8 24-8-24-24-8 24-8z"/>
+    <path d="M2260 500l7 21 21 7-21 7-7 21-7-21-21-7 21-7z"/>
+    <path d="M250 455l7 21 21 7-21 7-7 21-7-21-21-7 21-7z"/>
+  </g>
+  <g fill="#b8ddeb" opacity=".8">
+    <circle cx="650" cy="670" r="17"/>
+    <circle cx="1840" cy="405" r="18"/>
+    <circle cx="2270" cy="170" r="15"/>
+  </g>
+  <g fill="#fff" opacity=".9">
+    <circle cx="65" cy="690" r="5"/><circle cx="98" cy="690" r="5"/><circle cx="131" cy="690" r="5"/>
+    <circle cx="65" cy="723" r="5"/><circle cx="98" cy="723" r="5"/><circle cx="131" cy="723" r="5"/>
+    <circle cx="65" cy="756" r="5"/><circle cx="98" cy="756" r="5"/><circle cx="131" cy="756" r="5"/>
+  </g>
+
+  <!-- Distant hills -->
+  <path d="M0 790C300 700 520 760 760 825C980 885 1110 760 1320 790C1530 820 1650 720 1850 680C2070 635 2220 610 2400 650V1080H0Z"
+        fill="url(#hill2)" opacity=".72"/>
+  <path d="M0 875C260 810 440 825 660 900C870 970 1050 860 1260 850C1500 838 1650 760 1880 735C2080 712 2240 720 2400 690V1080H0Z"
+        fill="url(#hill3)" opacity=".76"/>
+
+  <!-- Foreground hills -->
+  <path d="M0 865C230 790 430 815 610 900C780 980 940 1025 1120 1015C1330 1002 1430 865 1630 820C1850 770 2010 850 2180 815C2280 795 2350 760 2400 735V1080H0Z"
+        fill="url(#hill1)"/>
+  <path d="M0 965C240 875 430 890 650 960C860 1027 1040 1070 1250 1035C1470 998 1580 900 1800 875C2020 850 2220 900 2400 830V1080H0Z"
+        fill="#9bdad5" opacity=".42"/>
+
+  <!-- Simple winding path -->
+  <path d="M2050 1080C2130 1025 2190 990 2185 940C2180 900 2110 885 2135 850C2160 815 2240 795 2290 770"
+        fill="none" stroke="#f7f5e9" stroke-width="34" stroke-linecap="round" opacity=".9"/>
+
+  <!-- Left foliage -->
+  <g stroke="#55bdb5" stroke-width="8" stroke-linecap="round" fill="none" opacity=".9">
+    <path d="M95 1080V850"/><path d="M275 1080V900"/><path d="M500 1080V935"/>
+  </g>
+  <g fill="#58bdb6" opacity=".8">
+    <ellipse cx="78" cy="900" rx="24" ry="55" transform="rotate(-35 78 900)"/>
+    <ellipse cx="118" cy="940" rx="23" ry="52" transform="rotate(38 118 940)"/>
+    <ellipse cx="67" cy="1000" rx="25" ry="58" transform="rotate(-35 67 1000)"/>
+    <ellipse cx="125" cy="1035" rx="24" ry="55" transform="rotate(38 125 1035)"/>
+    <ellipse cx="250" cy="940" rx="18" ry="40" transform="rotate(-28 250 940)"/>
+    <ellipse cx="300" cy="975" rx="18" ry="40" transform="rotate(28 300 975)"/>
+    <ellipse cx="475" cy="975" rx="17" ry="38" transform="rotate(-30 475 975)"/>
+    <ellipse cx="525" cy="1005" rx="17" ry="38" transform="rotate(30 525 1005)"/>
+  </g>
+
+  <!-- Right foliage -->
+  <g stroke="#4bb5ae" stroke-width="8" stroke-linecap="round" fill="none" opacity=".85">
+    <path d="M2310 1080V790"/><path d="M2150 1080V920"/><path d="M1980 1080V955"/>
+  </g>
+  <g fill="#55bdb6" opacity=".82">
+    <ellipse cx="2288" cy="835" rx="24" ry="55" transform="rotate(-32 2288 835)"/>
+    <ellipse cx="2335" cy="875" rx="24" ry="55" transform="rotate(32 2335 875)"/>
+    <ellipse cx="2285" cy="940" rx="24" ry="55" transform="rotate(-32 2285 940)"/>
+    <ellipse cx="2335" cy="980" rx="24" ry="55" transform="rotate(32 2335 980)"/>
+    <ellipse cx="2125" cy="965" rx="18" ry="42" transform="rotate(-30 2125 965)"/>
+    <ellipse cx="2170" cy="1005" rx="18" ry="42" transform="rotate(30 2170 1005)"/>
+    <ellipse cx="1955" cy="995" rx="17" ry="40" transform="rotate(-30 1955 995)"/>
+    <ellipse cx="2005" cy="1025" rx="17" ry="40" transform="rotate(30 2005 1025)"/>
+  </g>
+
+  <!-- Tiny decorative specks -->
+  <g fill="#8fd7e8" opacity=".7">
+    <circle cx="120" cy="810" r="4"/><circle cx="150" cy="825" r="4"/><circle cx="180" cy="810" r="4"/>
+    <circle cx="700" cy="250" r="4"/><circle cx="725" cy="270" r="3"/><circle cx="750" cy="245" r="4"/>
+  </g>
+</svg>
