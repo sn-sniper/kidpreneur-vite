@@ -67,8 +67,7 @@ export default function Navbar() {
               <div className="absolute top-full left-0 w-48 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
                 <div className="bg-white rounded-xl shadow-lg py-2 border border-gray-100">
                   {activities.map((activity) => {
-                    const nextUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
-                    const href = activity.name === 'The Kidpreneur Lab' ? `${nextUrl}/register/lab` : activity.href;
+                    const href = activity.href;
                     return (
                       <a
                         key={activity.name}
@@ -153,8 +152,7 @@ export default function Navbar() {
           <div className="py-2">
             <p className="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Our Activities</p>
             {activities.map((activity) => {
-              const nextUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
-              const href = activity.name === 'The Kidpreneur Lab' ? `${nextUrl}/register/lab` : activity.href;
+              const href = activity.href;
               return (
                 <a
                   key={activity.name}
