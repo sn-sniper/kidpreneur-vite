@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Rocket, User as UserIcon, LogOut } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Menu, X, ChevronDown, Rocket, User as UserIcon, LogOut, Sparkles } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import AuthModal from '../auth/AuthModal';
 import type { AuthMode } from '../auth/AuthModal';
@@ -10,9 +11,9 @@ export default function Navbar() {
   const { user, logout } = useAuth();
 
   const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Mission', href: '#mission' },
-    { name: 'Vision', href: '#vision' },
+    { name: 'About', href: '/#about' },
+    { name: 'Mission', href: '/#mission' },
+    { name: 'Vision', href: '/#vision' },
   ];
 
   const [activities, setActivities] = useState<{name: string, href: string}[]>([]);
@@ -39,15 +40,15 @@ export default function Navbar() {
     <nav className="fixed w-full z-50 top-0 inset-s-0 bg-kidpreneur-offwhite/90 backdrop-blur-md border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <div className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <Rocket className="h-8 w-8 text-kidpreneur-teal" />
-            <a href="#" className="text-2xl font-display font-bold text-kidpreneur-slate">
+            <span className="text-2xl font-display font-bold text-kidpreneur-slate">
               The Kidpreneur Journey
-            </a>
-          </div>
+            </span>
+          </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-7">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -58,32 +59,50 @@ export default function Navbar() {
               </a>
             ))}
 
+            <Link
+              to="/portfolio"
+              className="text-gray-800 hover:text-kidpreneur-teal font-semibold transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:bg-teal-50"
+            >
+              <Sparkles className="w-4 h-4 text-kidpreneur-teal" />
+              <span>Portfolio</span>
+            </Link>
+
             {/* Dropdown */}
             <div className="relative group">
               <button className="flex items-center text-gray-700 hover:text-kidpreneur-blue font-medium transition-colors py-2">
                 Our Activities <ChevronDown className="ml-1 w-4 h-4 transition-transform group-hover:-rotate-180" />
               </button>
               
-              <div className="absolute top-full left-0 w-48 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
-                <div className="bg-white rounded-xl shadow-lg py-2 border border-gray-100">
-                  {activities.map((activity) => {
-                    const href = activity.href;
-                    return (
-                      <a
-                        key={activity.name}
-                        href={href}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-kidpreneur-offwhite hover:text-kidpreneur-blue transition-colors"
-                      >
-                        {activity.name}
-                      </a>
-                    );
-                  })}
+              <div className="absolute top-full left-0 w-52 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
+                <div className="bg-white rounded-2xl shadow-xl py-2 border border-gray-100 divide-y divide-gray-50">
+                  <div className="py-1">
+                    <Link
+                      to="/portfolio"
+                      className="block px-4 py-2 text-xs font-bold text-kidpreneur-teal hover:bg-teal-50 transition-colors uppercase tracking-wider"
+                    >
+                      ✦ View All Activities
+                    </Link>
+                  </div>
+                  <div className="py-1">
+                    {activities.map((activity) => {
+                      const href = activity.href;
+                      return (
+                        <a
+                          key={activity.name}
+                          href={href}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-kidpreneur-offwhite hover:text-kidpreneur-blue transition-colors"
+                        >
+                          {activity.name}
+                        </a>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
 
             <a
-              href="#contact"
+              href="/#contact"
               className="text-gray-700 hover:text-kidpreneur-blue font-medium transition-colors"
             >
               Contact Us
@@ -144,11 +163,20 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
+              onClick={() => setIsOpen(false)}
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-kidpreneur-offwhite hover:text-kidpreneur-blue"
             >
               {link.name}
             </a>
           ))}
+          <Link
+            to="/portfolio"
+            onClick={() => setIsOpen(false)}
+            className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-semibold text-kidpreneur-teal hover:bg-teal-50"
+          >
+            <Sparkles className="w-4 h-4" />
+            <span>Portfolio & Activities</span>
+          </Link>
           <div className="py-2">
             <p className="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Our Activities</p>
             {activities.map((activity) => {
