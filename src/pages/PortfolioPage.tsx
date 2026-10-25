@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Search, Sparkles, Calendar, Layers, CheckCircle2, ArrowRight } from 'lucide-react';
 import { fetchPortfolioItems } from '../services/portfolioApi';
 import type { PortfolioItem } from '../services/portfolioApi';
@@ -23,11 +24,25 @@ const InstagramIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4"
   </svg>
 );
 
+const VALID_FILTERS = ['ALL', 'UPCOMING', 'COMPLETED', 'INSTAGRAM'] as const;
+type FilterType = typeof VALID_FILTERS[number];
+
 export const PortfolioPage: React.FC = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const filterParam = searchParams.get('filter')?.toUpperCase() as FilterType | undefined;
+  
   const [items, setItems] = useState<PortfolioItem[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeFilter, setActiveFilter] = useState<'ALL' | 'UPCOMING' | 'COMPLETED' | 'INSTAGRAM'>('ALL');
+  const [activeFilter, setActiveFilter] = useState<FilterType>(() => {
+    return filterParam && VALID_FILTERS.includes(filterParam) ? filterParam : 'ALL';
+  });
   const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    if (filterParam && VALID_FILTERS.includes(filterParam)) {
+      setActiveFilter(filterParam);
+    }
+  }, [filterParam]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -39,6 +54,15 @@ export const PortfolioPage: React.FC = () => {
     };
     loadItems();
   }, []);
+
+  const handleTabChange = (tabId: FilterType) => {
+    setActiveFilter(tabId);
+    if (tabId === 'ALL') {
+      setSearchParams({});
+    } else {
+      setSearchParams({ filter: tabId });
+    }
+  };
 
   const filteredItems = items.filter(item => {
     const matchesSearch =
@@ -88,7 +112,7 @@ export const PortfolioPage: React.FC = () => {
               return (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveFilter(tab.id as any)}
+                  onClick={() => handleTabChange(tab.id as FilterType)}
                   className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl text-sm font-semibold transition-all ${
                     isActive
                       ? 'bg-kidpreneur-teal text-white shadow-md shadow-teal-200'
@@ -141,8 +165,37 @@ export const PortfolioPage: React.FC = () => {
           </div>
         )}
 
+        {/* Instagram Community Banner */}
+        <div className="mt-16 bg-gradient-to-r from-amber-500/10 via-pink-500/10 to-purple-500/10 border border-pink-100 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 text-white flex items-center justify-center shrink-0 shadow-md">
+              <InstagramIcon className="w-7 h-7" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold text-pink-600 uppercase tracking-wider">Instagram Community</span>
+                <span className="text-slate-300">•</span>
+                <span className="text-xs text-slate-500">@kidpreneur.journey</span>
+              </div>
+              <h3 className="text-lg font-bold text-slate-800">Catch Live Moments with Dr. Sarah Sidani</h3>
+              <p className="text-sm text-slate-600 mt-0.5">
+                Watch young innovators celebrate F.A.I.L. milestones, pitch their prototypes, and explore weekly parenting tips.
+              </p>
+            </div>
+          </div>
+          <a
+            href="https://www.instagram.com/kidpreneur.journey/"
+            target="_blank"
+            rel="noreferrer"
+            className="shrink-0 inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 via-pink-500 to-purple-600 text-white font-bold px-6 py-3 rounded-2xl shadow-md hover:opacity-95 transition-all hover:scale-105 text-sm"
+          >
+            <InstagramIcon className="w-4 h-4" />
+            <span>Follow on Instagram</span>
+          </a>
+        </div>
+
         {/* Bottom CTA Banner */}
-        <div className="mt-20 bg-gradient-to-r from-kidpreneur-slate via-slate-800 to-kidpreneur-slate rounded-3xl p-8 sm:p-12 text-white text-center relative overflow-hidden shadow-xl">
+        <div className="mt-12 bg-gradient-to-r from-kidpreneur-slate via-slate-800 to-kidpreneur-slate rounded-3xl p-8 sm:p-12 text-white text-center relative overflow-hidden shadow-xl">
           <div className="relative z-10 max-w-2xl mx-auto space-y-4">
             <h2 className="text-3xl sm:text-4xl font-display font-bold">
               Ready to Spark Your Child's Potential?

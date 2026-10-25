@@ -15,24 +15,42 @@ export default function About() {
           </div>
           
           <div className="w-full lg:w-1/2 space-y-6">
-            <p className="text-kidpreneur-blue font-bold tracking-widest uppercase text-sm">About Us</p>
+            <div className="flex items-center gap-2">
+              <span className="text-kidpreneur-blue font-bold tracking-widest uppercase text-sm">About Us</span>
+              <span className="text-gray-300">•</span>
+              <span className="text-xs font-semibold text-pink-600 bg-pink-50 px-2.5 py-0.5 rounded-full border border-pink-100">
+                Founded by Dr. Sarah Sidani
+              </span>
+            </div>
             <h2 className="text-4xl md:text-5xl font-display font-bold text-kidpreneur-slate leading-tight">
               Welcome to The Kidpreneur Journey
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed">
-              Where curiosity meets creativity, and young minds are empowered to explore, build, and grow. We inspire children to discover their potential through hands-on experiences.
+              Where curiosity meets creativity, and young minds are empowered to explore, build, and grow. Founded by academic and youth entrepreneurship educator <strong className="text-slate-800">Dr. Sarah Sidani</strong>, we shift children from passive consumers of tech into confident inventors.
             </p>
             <ul className="space-y-4 pt-4">
               {[
-                "Learning should be interactive and hands-on, where mistakes are welcomed as essential parts of growth.",
-                "Curiosity is where innovation begins, spark it and extraordinary things happen.",
-                "We focus on future-focused skills to empower lasting creativity and adaptability."
+                {
+                  title: "F.A.I.L. = First Attempt In Learning",
+                  desc: "We celebrate mistakes as essential stepping stones. Children learn resilience and problem-solving without fear of getting things wrong."
+                },
+                {
+                  title: "Active Creation Over Passive Screen Time",
+                  desc: "Instead of endless scrolling, kids craft digital stories, program interactive robotics, and explore AI logic through fun play."
+                },
+                {
+                  title: "Hands-on Entrepreneurship & Financial Smarts",
+                  desc: "From understanding cost margins to pitching in front of parents and peers, learners discover the true power of value creation."
+                }
               ].map((item, index) => (
-                <li key={index} className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-kidpreneur-offwhite flex items-center justify-center text-kidpreneur-teal font-bold shrink-0">
+                <li key={index} className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-2xl bg-teal-50 border border-teal-100 flex items-center justify-center text-kidpreneur-teal font-bold shrink-0 mt-0.5">
                     {index + 1}
                   </div>
-                  <span className="text-gray-700 font-medium">{item}</span>
+                  <div>
+                    <h4 className="font-bold text-slate-800 text-base">{item.title}</h4>
+                    <p className="text-gray-600 text-sm leading-relaxed mt-0.5">{item.desc}</p>
+                  </div>
                 </li>
               ))}
             </ul>

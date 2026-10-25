@@ -73,7 +73,7 @@ export default function Navbar() {
                 Our Activities <ChevronDown className="ml-1 w-4 h-4 transition-transform group-hover:-rotate-180" />
               </button>
               
-              <div className="absolute top-full left-0 w-52 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
+              <div className="absolute top-full left-0 w-60 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
                 <div className="bg-white rounded-2xl shadow-xl py-2 border border-gray-100 divide-y divide-gray-50">
                   <div className="py-1">
                     <Link
@@ -84,19 +84,51 @@ export default function Navbar() {
                     </Link>
                   </div>
                   <div className="py-1">
-                    {activities.map((activity) => {
-                      const href = activity.href;
-                      return (
-                        <a
-                          key={activity.name}
-                          href={href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-kidpreneur-offwhite hover:text-kidpreneur-blue transition-colors"
-                        >
-                          {activity.name}
-                        </a>
-                      );
-                    })}
+                    <Link
+                      to="/portfolio?filter=COMPLETED"
+                      className="flex items-center gap-2.5 px-4 py-2 text-sm text-gray-700 hover:bg-kidpreneur-offwhite hover:text-kidpreneur-blue transition-colors font-medium"
+                    >
+                      <span>🏆</span>
+                      <span>Past Highlights</span>
+                    </Link>
+                    <Link
+                      to="/portfolio?filter=INSTAGRAM"
+                      className="flex items-center gap-2.5 px-4 py-2 text-sm text-gray-700 hover:bg-kidpreneur-offwhite hover:text-pink-600 transition-colors font-medium"
+                    >
+                      <span>📸</span>
+                      <span>Instagram Stories & Posts</span>
+                    </Link>
+                    <Link
+                      to="/portfolio?filter=UPCOMING"
+                      className="flex items-center gap-2.5 px-4 py-2 text-sm text-gray-700 hover:bg-kidpreneur-offwhite hover:text-teal-600 transition-colors font-medium"
+                    >
+                      <span>🚀</span>
+                      <span>Upcoming Workshops</span>
+                    </Link>
+                    <a
+                      href="/#activities"
+                      className="flex items-center gap-2.5 px-4 py-2 text-sm text-gray-500 hover:bg-kidpreneur-offwhite hover:text-slate-800 transition-colors"
+                    >
+                      <span>🧭</span>
+                      <span>Core Disciplines</span>
+                    </a>
                   </div>
+                  {activities.length > 0 && (
+                    <div className="py-1">
+                      {activities.map((activity) => {
+                        const href = activity.href;
+                        return (
+                          <a
+                            key={activity.name}
+                            href={href}
+                            className="block px-4 py-2 text-sm text-gray-600 hover:bg-kidpreneur-offwhite hover:text-kidpreneur-blue transition-colors"
+                          >
+                            {activity.name}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -177,15 +209,40 @@ export default function Navbar() {
             <Sparkles className="w-4 h-4" />
             <span>Portfolio & Activities</span>
           </Link>
-          <div className="py-2">
-            <p className="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Our Activities</p>
+          <div className="py-2 border-y border-gray-100 my-1">
+            <p className="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Our Activities</p>
+            <Link
+              to="/portfolio?filter=COMPLETED"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-kidpreneur-offwhite"
+            >
+              <span>🏆</span>
+              <span>Past Highlights</span>
+            </Link>
+            <Link
+              to="/portfolio?filter=INSTAGRAM"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium text-pink-600 hover:bg-pink-50"
+            >
+              <span>📸</span>
+              <span>Instagram Stories & Posts</span>
+            </Link>
+            <Link
+              to="/portfolio?filter=UPCOMING"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium text-teal-700 hover:bg-teal-50"
+            >
+              <span>🚀</span>
+              <span>Upcoming Workshops</span>
+            </Link>
             {activities.map((activity) => {
               const href = activity.href;
               return (
                 <a
                   key={activity.name}
                   href={href}
-                  className="block px-3 py-2 mt-1 rounded-md text-base font-medium text-gray-700 hover:bg-kidpreneur-offwhite pl-6"
+                  onClick={() => setIsOpen(false)}
+                  className="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-kidpreneur-offwhite pl-6"
                 >
                   {activity.name}
                 </a>

@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './components/layout/Navbar';
+import MegaMenuNavbar from './components/layout/MegaMenuNavbar';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
@@ -27,7 +27,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-kidpreneur-offwhite font-sans text-slate-800 flex flex-col justify-between">
-        <Navbar />
+        <MegaMenuNavbar />
         <div className="flex-1">
           <Routes>
             <Route path="/" element={<HomePage />} />
