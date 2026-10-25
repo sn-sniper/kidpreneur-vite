@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ChevronDown, Rocket, User as UserIcon, LogOut, Sparkles } from 'lucide-react';
+import { Menu, X, ChevronDown, User as UserIcon, LogOut, Sparkles } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import AuthModal from '../auth/AuthModal';
 import type { AuthMode } from '../auth/AuthModal';
@@ -40,11 +40,12 @@ export default function Navbar() {
     <nav className="fixed w-full z-50 top-0 inset-s-0 bg-kidpreneur-offwhite/90 backdrop-blur-md border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-2">
-            <Rocket className="h-8 w-8 text-kidpreneur-teal" />
-            <span className="text-2xl font-display font-bold text-kidpreneur-slate">
-              The Kidpreneur Journey
-            </span>
+          <Link to="/" className="flex items-center gap-2 group py-1">
+            <img
+              src="/logo.jpg"
+              alt="The Kidpreneur Journey"
+              className="h-11 sm:h-12 w-auto max-w-[200px] object-contain rounded-xl shadow-xs group-hover:scale-[1.02] transition-transform"
+            />
           </Link>
 
           {/* Desktop Menu */}

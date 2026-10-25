@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
-import { ChevronDown, Menu, X, Rocket, Sparkles, User as UserIcon, LogOut, ArrowRight } from "lucide-react";
+import { ChevronDown, Menu, X, Sparkles, User as UserIcon, LogOut, ArrowRight } from "lucide-react";
 import {
   FaInstagram,
   FaWhatsapp,
@@ -135,18 +135,12 @@ export default function MegaMenuNavbar() {
           {/* Top Navbar Row */}
           <div className="flex items-center justify-between gap-4 px-6 py-3.5 sm:px-8">
             {/* Logo */}
-            <Link to="/" className="flex shrink-0 items-center gap-2.5">
-              <div className="w-10 h-10 rounded-2xl bg-teal-50 border border-teal-100 flex items-center justify-center text-kidpreneur-teal shadow-xs">
-                <Rocket className="h-5 w-5" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-lg sm:text-xl font-display font-bold tracking-tight text-kidpreneur-slate leading-none">
-                  The Kidpreneur Journey
-                </span>
-                <span className="text-[10px] text-slate-400 font-semibold mt-0.5">
-                  By Dr. Sarah Sidani
-                </span>
-              </div>
+            <Link to="/" className="flex shrink-0 items-center group py-0.5">
+              <img
+                src="/logo.jpg"
+                alt="The Kidpreneur Journey - By Dr. Sarah Sidani"
+                className="h-11 sm:h-12 w-auto max-w-[200px] object-contain rounded-xl shadow-xs group-hover:scale-[1.02] transition-transform"
+              />
             </Link>
 
             {/* Desktop Navigation */}

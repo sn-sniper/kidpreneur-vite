@@ -1,4 +1,3 @@
-import { Rocket } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const InstagramIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
@@ -24,14 +23,15 @@ export default function Footer() {
     <footer className="bg-white border-t border-gray-200 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex flex-col items-center md:items-start gap-1">
-            <div className="flex items-center gap-2">
-              <Rocket className="h-6 w-6 text-kidpreneur-teal" />
-              <span className="text-xl font-display font-bold text-kidpreneur-slate">
-                The Kidpreneur Journey
-              </span>
-            </div>
-            <p className="text-xs text-gray-400 font-medium pl-8">
+          <div className="flex flex-col items-center md:items-start gap-1.5">
+            <Link to="/" className="flex items-center gap-2 group">
+              <img
+                src="/logo.jpg"
+                alt="The Kidpreneur Journey - By Dr. Sarah Sidani"
+                className="h-12 sm:h-14 w-auto object-contain rounded-xl shadow-xs group-hover:scale-[1.02] transition-transform"
+              />
+            </Link>
+            <p className="text-xs text-gray-500 font-medium">
               Founded & Led by Dr. Sarah Sidani
             </p>
           </div>
