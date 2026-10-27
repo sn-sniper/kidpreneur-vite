@@ -137,14 +137,28 @@ export const InstagramHybridCard: React.FC<{ item: PortfolioItem }> = ({ item })
             </div>
 
             {/* Modal Embed Body */}
-            <div className="flex-1 overflow-y-auto p-4 flex flex-col items-center justify-center bg-slate-50 min-h-[480px]">
+            <div className="flex-1 overflow-y-auto p-3 sm:p-4 flex flex-col items-center justify-center bg-slate-50 min-h-[460px]">
               {embedUrl ? (
-                <iframe
-                  src={embedUrl}
-                  className="w-full h-[480px] sm:h-[540px] rounded-2xl border-0 shadow-sm"
-                  allowFullScreen
-                  title={item.title}
-                />
+                <div className="w-full flex flex-col items-center gap-3">
+                  <iframe
+                    src={embedUrl}
+                    className="w-full h-[460px] sm:h-[520px] rounded-2xl border-0 shadow-sm bg-white"
+                    allowFullScreen
+                    title={item.title}
+                  />
+                  {item.instagramUrl && (
+                    <a
+                      href={item.instagramUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="w-full text-center py-2 px-4 rounded-xl bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
+                    >
+                      <InstagramIcon className="w-3.5 h-3.5 text-pink-600" />
+                      <span>View comments & audio on Instagram</span>
+                      <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+                    </a>
+                  )}
+                </div>
               ) : (
                 <div className="text-center p-8 space-y-4">
                   <div className="w-16 h-16 rounded-full bg-pink-100 text-pink-600 mx-auto flex items-center justify-center">

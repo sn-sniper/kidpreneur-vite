@@ -105,7 +105,7 @@ const NAV_ITEMS = [
 
 const SOCIALS = [
   { href: "https://www.instagram.com/kidpreneur.journey/", label: "Instagram", icon: FaInstagram },
-  { href: "https://wa.me/96171123456", label: "WhatsApp", icon: FaWhatsapp },
+  { href: "https://wa.me/96179332143", label: "WhatsApp", icon: FaWhatsapp },
   { href: "#", label: "YouTube", icon: FaYoutube },
   { href: "#", label: "LinkedIn", icon: FaLinkedin },
 ];
