@@ -408,8 +408,45 @@ export default function MegaMenuNavbar() {
                     )
                   )}
 
-                  {/* Mobile Kidpreneur Lab CTA */}
+                  {/* Mobile Auth / Profile Section */}
                   <div className="mt-3 pt-3 border-t border-zinc-100 flex flex-col gap-2">
+                    {user ? (
+                      <div className="flex items-center justify-between bg-slate-50 border border-slate-200/60 p-3 rounded-2xl">
+                        <div className="flex items-center gap-2.5">
+                          <div className="w-8 h-8 rounded-full bg-kidpreneur-teal flex items-center justify-center text-white text-xs font-bold shrink-0">
+                            <UserIcon className="w-4 h-4" />
+                          </div>
+                          <div className="flex flex-col overflow-hidden">
+                            <span className="text-xs font-bold text-zinc-900 truncate">{user.fullName}</span>
+                            <span className="text-[11px] text-zinc-500 truncate">{user.email}</span>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => {
+                            logout();
+                            setMobileOpen(false);
+                          }}
+                          className="flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-red-600 bg-red-50 hover:bg-red-100 rounded-xl transition-colors shrink-0"
+                        >
+                          <LogOut className="w-3.5 h-3.5" />
+                          <span>Log Out</span>
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          setAuthMode('login');
+                          setMobileOpen(false);
+                        }}
+                        className="w-full rounded-2xl border border-zinc-200 bg-zinc-50 py-3 text-center text-xs font-bold text-zinc-800 hover:bg-zinc-100 transition-colors"
+                      >
+                        Sign In / Register
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Mobile Kidpreneur Lab CTA */}
+                  <div className="pt-2 flex flex-col gap-2">
                     <a
                       href={`${LAB_PORTAL_URL}/register/lab`}
                       className="rounded-2xl bg-kidpreneur-teal text-white font-bold py-3 text-center text-sm shadow-sm"
