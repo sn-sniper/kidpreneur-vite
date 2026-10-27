@@ -67,10 +67,18 @@ export const PortfolioPage: React.FC = () => {
 
     if (!matchesSearch) return false;
 
+    const isPast = Boolean(
+      item.eventDate &&
+      !isNaN(new Date(item.eventDate).getTime()) &&
+      new Date(item.eventDate) < new Date(new Date().setHours(0, 0, 0, 0))
+    );
+    const isUpcoming = item.type === 'WORKSHOP' && item.status === 'UPCOMING' && !isPast;
+    const isPastHighlight = item.type !== 'INSTAGRAM' && (item.status === 'COMPLETED' || isPast);
+
     if (activeFilter === 'ALL') return true;
     if (activeFilter === 'INSTAGRAM') return item.type === 'INSTAGRAM';
-    if (activeFilter === 'UPCOMING') return item.type === 'WORKSHOP' && item.status === 'UPCOMING';
-    if (activeFilter === 'COMPLETED') return item.type !== 'INSTAGRAM' && item.status === 'COMPLETED';
+    if (activeFilter === 'UPCOMING') return isUpcoming;
+    if (activeFilter === 'COMPLETED') return isPastHighlight;
 
     return true;
   });

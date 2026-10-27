@@ -4,7 +4,12 @@ import { Calendar, MapPin, ArrowRight, Image as ImageIcon } from 'lucide-react';
 import type { PortfolioItem } from '../../services/portfolioApi';
 
 export const WorkshopCard: React.FC<{ item: PortfolioItem }> = ({ item }) => {
-  const isUpcoming = item.status === 'UPCOMING';
+  const isPast = Boolean(
+    item.eventDate &&
+    !isNaN(new Date(item.eventDate).getTime()) &&
+    new Date(item.eventDate) < new Date(new Date().setHours(0, 0, 0, 0))
+  );
+  const isUpcoming = item.status === 'UPCOMING' && !isPast;
 
   return (
     <div className="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col justify-between">
