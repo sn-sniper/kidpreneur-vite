@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown, User as UserIcon, LogOut, Sparkles } from 'lucide
 import { useAuth } from '../../context/AuthContext';
 import AuthModal from '../auth/AuthModal';
 import type { AuthMode } from '../auth/AuthModal';
+import { getApiOrigin } from '../../services/api';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,8 +23,8 @@ export default function Navbar() {
     let mounted = true;
     const fetchActivities = async () => {
       try {
-        const apiUrl = import.meta.env.VITE_API_URL || '';
-        const res = await fetch(`${apiUrl}/api/portfolio/activities`);
+        const origin = getApiOrigin();
+        const res = await fetch(`${origin}/api/portfolio/activities`);
         if (res.ok && mounted) {
           const data = await res.json();
           setActivities(data.activities);

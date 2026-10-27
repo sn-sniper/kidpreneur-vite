@@ -2,6 +2,8 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 
+import { getApiOrigin } from '../services/api';
+
 export interface User {
   id: string;
   email: string;
@@ -24,15 +26,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const refreshUser = async () => {
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || '';
-      const res = await fetch(`${apiUrl}/api/auth/me`);
+      const origin = getApiOrigin();
+      const res = await fetch(`${origin}/api/auth/me`, { credentials: 'include' });
       if (res.ok) {
         const data = await res.json();
         setUser(data.user);
       } else {
         setUser(null);
       }
-    } catch (error) {
+    } catch {
       setUser(null);
     } finally {
       setLoading(false);
@@ -41,11 +43,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = async () => {
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || '';
-      await fetch(`${apiUrl}/api/auth/logout`, { method: 'POST' });
+      const origin = getApiOrigin();
+      await fetch(`${origin}/api/auth/logout`, { method: 'POST', credentials: 'include' });
       setUser(null);
-    } catch (error) {
-      console.error('Logout failed', error);
+    } catch (err) {
+      console.error('Logout failed', err);
     }
   };
 
@@ -54,8 +56,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     
     const initAuth = async () => {
       try {
-        const apiUrl = import.meta.env.VITE_API_URL || '';
-        const res = await fetch(`${apiUrl}/api/auth/me`);
+        const origin = getApiOrigin();
+        const res = await fetch(`${origin}/api/auth/me`, { credentials: 'include' });
         if (!mounted) return;
         
         if (res.ok) {
@@ -64,7 +66,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         } else {
           setUser(null);
         }
-      } catch (error) {
+      } catch {
         if (mounted) setUser(null);
       } finally {
         if (mounted) setLoading(false);

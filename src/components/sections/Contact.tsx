@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { getApiOrigin } from '../../services/api';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -9,8 +10,8 @@ export default function Contact() {
     setStatus('loading');
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || '';
-      const res = await fetch(`${apiUrl}/api/contact`, {
+      const origin = getApiOrigin();
+      const res = await fetch(`${origin}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

@@ -3,6 +3,7 @@ import type { FormEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Loader2 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { getApiOrigin } from '../../services/api';
 
 export type AuthMode = 'login' | 'register';
 
@@ -49,17 +50,18 @@ export default function AuthModal({ isOpen, initialMode = 'login', onClose }: Au
       : { fullName, email, password };
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || '';
-      const res = await fetch(`${apiUrl}${endpoint}`, {
+      const origin = getApiOrigin();
+      const res = await fetch(`${origin}${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify(bodyPayload),
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.message || `Failed to ${mode}`);
+        throw new Error(data.message || data.error || `Failed to ${mode}`);
       }
 
       await refreshUser();

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import { X, Loader2 } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
+import { getApiOrigin } from "../../services/api";
 
 interface RegisterModalProps {
   isOpen: boolean;
@@ -29,23 +30,28 @@ export default function RegisterModal({
     setLoading(true);
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || '';
-      const res = await fetch(`${apiUrl}/api/auth/register`, {
+      const origin = getApiOrigin();
+      const res = await fetch(`${origin}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify({ fullName, email, password }),
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.message || "Failed to register");
+        throw new Error(data.message || data.error || "Failed to register");
       }
 
       await refreshUser();
       onClose();
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Failed to register. Please try again.");
+      }
     } finally {
       setLoading(false);
     }

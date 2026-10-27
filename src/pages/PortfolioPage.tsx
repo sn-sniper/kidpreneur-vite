@@ -33,16 +33,11 @@ export const PortfolioPage: React.FC = () => {
   
   const [items, setItems] = useState<PortfolioItem[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeFilter, setActiveFilter] = useState<FilterType>(() => {
-    return filterParam && VALID_FILTERS.includes(filterParam) ? filterParam : 'ALL';
-  });
+  const [internalFilter, setInternalFilter] = useState<FilterType>('ALL');
+  const activeFilter: FilterType = (filterParam && VALID_FILTERS.includes(filterParam))
+    ? filterParam
+    : internalFilter;
   const [searchQuery, setSearchQuery] = useState('');
-
-  useEffect(() => {
-    if (filterParam && VALID_FILTERS.includes(filterParam)) {
-      setActiveFilter(filterParam);
-    }
-  }, [filterParam]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -56,7 +51,7 @@ export const PortfolioPage: React.FC = () => {
   }, []);
 
   const handleTabChange = (tabId: FilterType) => {
-    setActiveFilter(tabId);
+    setInternalFilter(tabId);
     if (tabId === 'ALL') {
       setSearchParams({});
     } else {

@@ -25,6 +25,8 @@ type MegaMenu = {
   imageCaption?: string;
 };
 
+const LAB_PORTAL_URL = import.meta.env.VITE_LAB_URL || (import.meta.env.DEV ? 'http://localhost:3000' : 'https://lab.the-kidpreneur-journey.com');
+
 const ACTIVITIES_MENU: MegaMenu = {
   columns: [
     {
@@ -48,7 +50,7 @@ const ACTIVITIES_MENU: MegaMenu = {
   ],
   footerLinks: [
     { label: "Follow @kidpreneur.journey on Instagram", href: "https://www.instagram.com/kidpreneur.journey/" },
-    { label: "Enroll in Kidpreneur Lab Cohort", href: "http://localhost:3000/register/lab" },
+    { label: "Enroll in Kidpreneur Lab Cohort", href: `${LAB_PORTAL_URL}/register/lab` },
   ],
   showSocials: true,
   image: {
@@ -71,9 +73,9 @@ const JOURNEY_MENU: MegaMenu = {
     {
       eyebrow: "The Kidpreneur Lab",
       links: [
-        { label: "10-Session Roadmap", href: "http://localhost:3000", icon: "🗺️" },
-        { label: "Interactive Tools & Calculators", href: "http://localhost:3000", badge: "Portal", icon: "🧮" },
-        { label: "Register Your Child in the Lab", href: "http://localhost:3000/register/lab", badge: "Enroll Now", icon: "✨" },
+        { label: "10-Session Roadmap", href: LAB_PORTAL_URL, icon: "🗺️" },
+        { label: "Interactive Tools & Calculators", href: LAB_PORTAL_URL, badge: "Portal", icon: "🧮" },
+        { label: "Register Your Child in the Lab", href: `${LAB_PORTAL_URL}/register/lab`, badge: "Enroll Now", icon: "✨" },
       ],
     },
   ],
@@ -96,7 +98,7 @@ const MEGA_MENUS: Record<string, MegaMenu> = {
 const NAV_ITEMS = [
   { label: "Our Activities", hasMenu: true },
   { label: "The Journey", hasMenu: true },
-  { label: "Kidpreneur Lab", hasMenu: false, href: "http://localhost:3000/register/lab", isLabBadge: true },
+  { label: "Kidpreneur Lab", hasMenu: false, href: `${LAB_PORTAL_URL}/register/lab`, isLabBadge: true },
   { label: "Portfolio", hasMenu: false, href: "/portfolio" },
   { label: "Contact", hasMenu: false, href: "/#contact" },
 ];
@@ -224,7 +226,7 @@ export default function MegaMenuNavbar() {
                     Sign In
                   </button>
                   <a
-                    href="http://localhost:3000/register/lab"
+                    href={`${LAB_PORTAL_URL}/register/lab`}
                     className="rounded-full bg-kidpreneur-teal px-5 py-2 text-xs font-bold text-white transition-all hover:bg-teal-700 shadow-sm flex items-center gap-1.5"
                   >
                     <span>Enroll in Lab</span>
@@ -409,7 +411,7 @@ export default function MegaMenuNavbar() {
                   {/* Mobile Kidpreneur Lab CTA */}
                   <div className="mt-3 pt-3 border-t border-zinc-100 flex flex-col gap-2">
                     <a
-                      href="http://localhost:3000/register/lab"
+                      href={`${LAB_PORTAL_URL}/register/lab`}
                       className="rounded-2xl bg-kidpreneur-teal text-white font-bold py-3 text-center text-sm shadow-sm"
                     >
                       Enroll in Kidpreneur Lab

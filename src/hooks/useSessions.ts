@@ -23,9 +23,9 @@ export const useSessions = () => {
           setData(responseData || []); 
           setError(null);
         }
-      } catch (err: any) {
+      } catch (err: unknown) {
         if (isMounted) {
-          setError(err.message || 'Failed to fetch sessions');
+          setError(err instanceof Error ? err.message : 'Failed to fetch sessions');
         }
       } finally {
         if (isMounted) {

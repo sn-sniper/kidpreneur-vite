@@ -1,7 +1,13 @@
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+export const getApiOrigin = (): string => {
+  const raw = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+  return raw.replace(/\/api\/?$/, '').replace(/\/$/, '');
+};
+
+const BASE_URL = `${getApiOrigin()}/api`;
 
 export const apiClient = async (endpoint: string, options: RequestInit = {}) => {
-  const url = `${BASE_URL}${endpoint}`;
+  const cleanEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+  const url = `${BASE_URL}${cleanEndpoint}`;
   
   const headers = {
     'Content-Type': 'application/json',
@@ -9,6 +15,7 @@ export const apiClient = async (endpoint: string, options: RequestInit = {}) => 
   };
 
   const config: RequestInit = {
+    credentials: 'include',
     ...options,
     headers,
   };
