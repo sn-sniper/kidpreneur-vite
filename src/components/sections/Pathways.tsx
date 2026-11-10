@@ -182,7 +182,7 @@ export default function Pathways() {
               </div>
 
               {/* 4 Collab Partners from Sketch */}
-              <div className="grid grid-cols-2 gap-2.5 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
                 <div className="bg-white p-3 rounded-2xl border border-slate-200">
                   <School className="w-4 h-4 text-amber-600 mb-1" />
                   <div className="font-bold text-xs text-slate-900">Schools</div>
