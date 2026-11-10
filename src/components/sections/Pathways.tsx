@@ -1,225 +1,156 @@
-import { useState, useEffect } from 'react';
-import { ArrowRight, Calendar, Users, Laptop, Building2, Tent, Trophy, School, Sparkles } from 'lucide-react';
-import { fetchPortfolioItems } from '../../services/portfolioApi';
-import type { PortfolioItem } from '../../services/portfolioApi';
-
 export default function Pathways() {
-  const [items, setItems] = useState<PortfolioItem[]>([]);
-
-  useEffect(() => {
-    let isMounted = true;
-    const loadItems = async () => {
-      try {
-        const data = await fetchPortfolioItems();
-        if (isMounted) setItems(data);
-      } catch (err) {
-        console.error('Failed to load portfolio items for pathways:', err);
-      }
-    };
-    loadItems();
-    return () => { isMounted = false; };
-  }, []);
-
-  const upcomingWorkshops = items.filter(i => i.type === 'WORKSHOP' && i.status === 'UPCOMING');
-  const pastActivitiesCount = items.filter(i => i.status === 'COMPLETED').length;
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      window.history.pushState(null, "", `#${id}`);
+    }
+  };
 
   return (
-    <section id="pathways" className="py-20 lg:py-28 bg-white border-b-2 border-slate-900/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="pathways" className="scroll-mt-24 py-16 sm:py-24 bg-[#fffdf7] border-t-2 border-[#dfe6f5]">
+      <div className="max-w-[1040px] mx-auto px-4 sm:px-6">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold uppercase tracking-wider mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-teal-600" />
-            <span>Learning Formats</span>
-          </div>
-          <h2 className="text-3xl sm:text-5xl font-display font-bold text-slate-900 mb-4 tracking-tight">
-            Choose Your Pathway
-          </h2>
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-sans">
-            Whether you’re a parent looking for a weekend experience, a family seeking a full course, or an organization that wants to bring entrepreneurship to children, there is a pathway for you.
-          </p>
-        </div>
+        {/* Title & Introduction */}
+        <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1c2455] mb-4">
+          Pathways
+        </h1>
+        <p className="text-lg sm:text-xl text-[#4d5580] leading-relaxed mb-10 max-w-[800px]">
+          Whether you’re a parent looking for a weekend experience, a family seeking a full course, or an organization that wants to bring entrepreneurship to children, there is a pathway for you.
+        </p>
 
-        {/* 3 Pathways Grid (Matching the handwritten sketch) */}
-        <div className="grid md:grid-cols-3 gap-8 items-stretch">
-          
-          {/* Pathway 1: Workshops */}
-          <div className="flex flex-col justify-between bg-kidpreneur-offwhite rounded-3xl p-6 sm:p-8 border-2 border-slate-900 shadow-[4px_4px_0px_#1e293b] hover:shadow-[6px_6px_0px_#1e293b] hover:-translate-y-1 transition-all">
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <span className="text-3xl">🚀</span>
-                <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-sky-100 text-sky-800 border border-sky-200">
-                  Pathway 1
-                </span>
-              </div>
+        <div className="space-y-8">
+          {/* Card 1: Workshops */}
+          <div className="bg-white border-2 border-[#1c2455] border-t-[10px] border-t-[#2f7de1] rounded-[20px] p-6 sm:p-8 shadow-[3px_3px_0_#1c2455]">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#1c2455] mb-2">
+              Workshops
+            </h2>
+            <p className="text-base text-[#4d5580] leading-relaxed mb-6 max-w-[700px]">
+              Interactive, high-energy sessions where children practice entrepreneurial thinking in a single experience.
+            </p>
 
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2 border-t border-[#dfe6f5]">
+              {/* Upcoming activities */}
               <div>
-                <h3 className="text-2xl font-display font-bold text-slate-900 mb-2">Workshops</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  Short, energizing, hands-on sessions where kids experiment, create, and pitch.
+                <h3 className="font-display text-lg font-bold text-[#1c2455] mb-2 flex items-center gap-2">
+                  <span>📅</span>
+                  <span>Upcoming activities</span>
+                </h3>
+                <p className="inline-block bg-[#eef5ff] border-2 border-dashed border-[#4d5580] rounded-xl px-4 py-2 text-xs sm:text-sm text-[#4d5580] font-semibold">
+                  New dates are on the way. Message us to join the list.
                 </p>
               </div>
 
-              <div className="space-y-4 pt-2">
-                {/* Upcoming Activities */}
-                <div className="bg-white p-4 rounded-2xl border border-slate-200 space-y-1.5">
-                  <div className="flex items-center gap-2 text-xs font-bold text-sky-700 uppercase tracking-wide">
-                    <Calendar className="w-3.5 h-3.5" />
-                    <span>Upcoming Activities</span>
-                  </div>
-                  {upcomingWorkshops.length > 0 ? (
-                    <div className="space-y-2 pt-1">
-                      {upcomingWorkshops.slice(0, 2).map(ws => (
-                        <div key={ws.id} className="text-xs text-slate-700 font-medium">
-                          <span className="font-bold text-slate-900">{ws.title}</span> • {ws.eventDate || 'Coming soon'}
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="text-xs text-slate-500 font-medium">
-                      New dates are on the way. Message us below to join the priority invite list.
-                    </p>
-                  )}
-                </div>
-
-                {/* Past Activities */}
-                <div className="bg-white p-4 rounded-2xl border border-slate-200 space-y-1.5">
-                  <div className="flex items-center gap-2 text-xs font-bold text-amber-700 uppercase tracking-wide">
-                    <Trophy className="w-3.5 h-3.5" />
-                    <span>Past Activities {pastActivitiesCount > 0 ? `(${pastActivitiesCount})` : ''}</span>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    A look back at recent sessions: kids brainstorming, building functional prototypes, and pitching to the room.
-                  </p>
-                  <a href="/portfolio" className="inline-flex items-center gap-1 text-xs font-bold text-teal-600 hover:text-teal-700 pt-1">
-                    <span>View photo gallery & past highlights</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </a>
-                </div>
+              {/* Past activities */}
+              <div>
+                <h3 className="font-display text-lg font-bold text-[#1c2455] mb-2 flex items-center gap-2">
+                  <span>🏆</span>
+                  <span>Past activities</span>
+                </h3>
+                <p className="text-sm text-[#4d5580] leading-relaxed mb-3">
+                  A look back at our recent workshops: kids brainstorming, building prototypes, and pitching their ideas to the room.
+                </p>
+                <a
+                  href="/portfolio"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#2f7de1] hover:underline"
+                >
+                  <span>View past workshops & photos</span>
+                  <span>→</span>
+                </a>
               </div>
-            </div>
-
-            <div className="pt-6 mt-4 border-t border-slate-200/80">
-              <a 
-                href="/portfolio" 
-                className="w-full flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-800 border-2 border-slate-900 py-3 rounded-2xl font-bold text-sm shadow-[2px_2px_0px_#1e293b] transition-all"
-              >
-                <span>View all workshops</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
             </div>
           </div>
 
-          {/* Pathway 2: Courses */}
-          <div className="flex flex-col justify-between bg-kidpreneur-offwhite rounded-3xl p-6 sm:p-8 border-2 border-slate-900 shadow-[4px_4px_0px_#1e293b] hover:shadow-[6px_6px_0px_#1e293b] hover:-translate-y-1 transition-all">
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <span className="text-3xl">📚</span>
-                <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-teal-100 text-teal-800 border border-teal-200">
-                  Pathway 2
-                </span>
-              </div>
+          {/* Card 2: Courses */}
+          <div className="bg-white border-2 border-[#1c2455] border-t-[10px] border-t-[#0f9b8e] rounded-[20px] p-6 sm:p-8 shadow-[3px_3px_0_#1c2455]">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#1c2455] mb-2">
+              Courses
+            </h2>
+            <p className="text-base text-[#4d5580] leading-relaxed mb-6 max-w-[700px]">
+              In-depth learning journeys that build skills week by week and end with a final pitch.
+            </p>
 
-              <div>
-                <h3 className="text-2xl font-display font-bold text-slate-900 mb-2">Courses</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  Structured learning journeys that take children step by step from first idea to confident pitch.
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div className="border-l-[6px] border-[#0f9b8e] pl-4 py-1">
+                <h3 className="font-display text-lg font-bold text-[#1c2455] mb-1">Online courses</h3>
+                <p className="text-sm text-[#4d5580] leading-relaxed m-0">
+                  Learn from anywhere with live guidance and interactive activities.
                 </p>
               </div>
 
-              <div className="space-y-4 pt-2">
-                {/* Online Courses */}
-                <div className="bg-white p-4 rounded-2xl border border-slate-200 space-y-1.5">
-                  <div className="flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wide">
-                    <Laptop className="w-3.5 h-3.5" />
-                    <span>Online Courses</span>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Learn from anywhere with interactive live mentor guidance, digital tools, and self-paced challenges.
-                  </p>
-                </div>
-
-                {/* In-Person Courses */}
-                <div className="bg-white p-4 rounded-2xl border border-slate-200 space-y-1.5">
-                  <div className="flex items-center gap-2 text-xs font-bold text-teal-700 uppercase tracking-wide">
-                    <Users className="w-3.5 h-3.5" />
-                    <span>In-Person Courses</span>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Face-to-face collaborative team challenges, maker prototyping, and pitch day showcases in a creative space.
-                  </p>
-                </div>
+              <div className="border-l-[6px] border-[#0f9b8e] pl-4 py-1">
+                <h3 className="font-display text-lg font-bold text-[#1c2455] mb-1">In-person courses</h3>
+                <p className="text-sm text-[#4d5580] leading-relaxed m-0">
+                  Face-to-face, collaborative learning in a creative, supportive space.
+                </p>
               </div>
             </div>
 
-            <div className="pt-6 mt-4 border-t border-slate-200/80">
-              <a 
-                href="#contact" 
-                className="w-full flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-900 border-2 border-slate-900 py-3 rounded-2xl font-bold text-sm shadow-[2px_2px_0px_#1e293b] transition-all"
-              >
-                <span>Ask about enrollment</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo("contact");
+              }}
+              className="btn-sun text-sm"
+            >
+              Ask about enrollment
+            </a>
           </div>
 
-          {/* Pathway 3: Collabs */}
-          <div className="flex flex-col justify-between bg-kidpreneur-offwhite rounded-3xl p-6 sm:p-8 border-2 border-slate-900 shadow-[4px_4px_0px_#1e293b] hover:shadow-[6px_6px_0px_#1e293b] hover:-translate-y-1 transition-all">
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <span className="text-3xl">🤝</span>
-                <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-purple-100 text-purple-800 border border-purple-200">
-                  Pathway 3
-                </span>
-              </div>
+          {/* Card 3: Collabs */}
+          <div className="bg-white border-2 border-[#1c2455] border-t-[10px] border-t-[#7b4bd1] rounded-[20px] p-6 sm:p-8 shadow-[3px_3px_0_#1c2455]">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#1c2455] mb-2">
+              Collabs
+            </h2>
+            <p className="text-base text-[#4d5580] leading-relaxed mb-4 max-w-[750px]">
+              Bring The Kidpreneur Journey to your community. We design programs to fit your group’s age, goals, and schedule.
+            </p>
+            <p className="text-sm font-bold uppercase tracking-wider text-[#7b4bd1] mb-4">
+              Bring Entrepreneurship to life in your:
+            </p>
 
-              <div>
-                <h3 className="text-2xl font-display font-bold text-slate-900 mb-2">Collabs</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  Bring entrepreneurship to life in your community with tailored programs for your group.
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <div className="border-l-[6px] border-[#7b4bd1] pl-3 py-1">
+                <h3 className="font-display text-base font-bold text-[#1c2455] mb-1">Schools</h3>
+                <p className="text-xs sm:text-sm text-[#4d5580] leading-relaxed m-0">
+                  Enrich your curriculum with entrepreneurship and life skills.
                 </p>
               </div>
 
-              {/* 4 Collab Partners from Sketch */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                <div className="bg-white p-3 rounded-2xl border border-slate-200">
-                  <School className="w-4 h-4 text-amber-600 mb-1" />
-                  <div className="font-bold text-xs text-slate-900">Schools</div>
-                  <div className="text-[11px] text-slate-500 leading-tight">Curriculum enrichment & life skills</div>
-                </div>
+              <div className="border-l-[6px] border-[#7b4bd1] pl-3 py-1">
+                <h3 className="font-display text-base font-bold text-[#1c2455] mb-1">Scouts</h3>
+                <p className="text-xs sm:text-sm text-[#4d5580] leading-relaxed m-0">
+                  Add problem-solving and teamwork challenges to your programs.
+                </p>
+              </div>
 
-                <div className="bg-white p-3 rounded-2xl border border-slate-200">
-                  <Tent className="w-4 h-4 text-emerald-600 mb-1" />
-                  <div className="font-bold text-xs text-slate-900">Scouts</div>
-                  <div className="text-[11px] text-slate-500 leading-tight">Team challenges & problem solving</div>
-                </div>
+              <div className="border-l-[6px] border-[#7b4bd1] pl-3 py-1">
+                <h3 className="font-display text-base font-bold text-[#1c2455] mb-1">Sports academies</h3>
+                <p className="text-xs sm:text-sm text-[#4d5580] leading-relaxed m-0">
+                  Help young athletes build leadership, resilience, and communication.
+                </p>
+              </div>
 
-                <div className="bg-white p-3 rounded-2xl border border-slate-200">
-                  <Trophy className="w-4 h-4 text-indigo-600 mb-1" />
-                  <div className="font-bold text-xs text-slate-900">Sports Academies</div>
-                  <div className="text-[11px] text-slate-500 leading-tight">Leadership & athletic resilience</div>
-                </div>
-
-                <div className="bg-white p-3 rounded-2xl border border-slate-200">
-                  <Building2 className="w-4 h-4 text-rose-600 mb-1" />
-                  <div className="font-bold text-xs text-slate-900">Camps</div>
-                  <div className="text-[11px] text-slate-500 leading-tight">Hands-on holiday bootcamps</div>
-                </div>
+              <div className="border-l-[6px] border-[#7b4bd1] pl-3 py-1">
+                <h3 className="font-display text-base font-bold text-[#1c2455] mb-1">Camps</h3>
+                <p className="text-xs sm:text-sm text-[#4d5580] leading-relaxed m-0">
+                  Make your summer or seasonal program memorable and meaningful.
+                </p>
               </div>
             </div>
 
-            <div className="pt-6 mt-4 border-t border-slate-200/80">
-              <a 
-                href="#contact" 
-                className="w-full flex items-center justify-center gap-2 bg-kidpreneur-teal hover:bg-teal-600 text-white border-2 border-slate-900 py-3 rounded-2xl font-bold text-sm shadow-[2px_2px_0px_#1e293b] transition-all"
-              >
-                <span>Request a collaboration</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo("contact");
+              }}
+              className="btn-sun text-sm"
+            >
+              Request a collaboration
+            </a>
           </div>
-
         </div>
 
       </div>
