@@ -1,23 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cairo:wght@200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&family=Cairo:wght@400;700&family=Raleway:wght@400;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-kidpreneur-offwhite: #F7F9FF;
-  --color-kidpreneur-yellow: #FCE06B;
+  --color-kidpreneur-offwhite: #FFFDF7;
+  --color-kidpreneur-yellow: #FFC93C;
   --color-kidpreneur-lightblue: #A3C5EA;
-  --color-kidpreneur-slate: #426B85;
-  --color-kidpreneur-blue: #4696C8;
-  --color-kidpreneur-teal: #14BAA9;
+  --color-kidpreneur-slate: #1C2455;
+  --color-kidpreneur-blue: #2F7DE1;
+  --color-kidpreneur-teal: #0F9B8E;
 
-  --font-sans: "Raleway", "Almarai", sans-serif;
-  --font-display: "lazydog", "Cairo", sans-serif;
-}
-
-@font-face {
-  font-family: 'lazydog';
-  src: local('Comic Sans MS'); /* Fallback until lazydog font is provided */
-  font-weight: normal;
-  font-style: normal;
+  --font-sans: "Nunito", "Raleway", system-ui, sans-serif;
+  --font-display: "Fredoka", "Cairo", sans-serif;
 }
 
 html {

@@ -1,62 +1,79 @@
-import { Link } from 'react-router-dom';
-
-const InstagramIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
-  <svg
-    viewBox="0 0 24 24"
-    width="24"
-    height="24"
-    stroke="currentColor"
-    strokeWidth="2"
-    fill="none"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-  </svg>
-);
+import { FaInstagram, FaWhatsapp } from 'react-icons/fa6';
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-200 py-12">
+    <footer className="bg-slate-900 text-white border-t-4 border-amber-400 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex flex-col items-center md:items-start gap-1.5">
-            <Link to="/" className="flex items-center gap-2 group">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+          
+          {/* Logo & Byline */}
+          <div className="flex flex-col items-center md:items-start gap-3">
+            <a href="#home" className="flex items-center gap-2 group">
               <img
-                src="/logo.jpg"
+                src="/kidpreneur-logo-light.png"
                 alt="The Kidpreneur Journey - By Dr. Sarah Sidani"
-                className="h-12 sm:h-14 w-auto object-contain rounded-xl shadow-xs group-hover:scale-[1.02] transition-transform"
+                className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105"
+                onError={(e) => {
+                  (e.target as HTMLElement).style.display = 'none';
+                }}
               />
-            </Link>
-            <p className="text-xs text-gray-500 font-medium">
-              Founded & Led by Dr. Sarah Sidani
+              <span className="font-display font-bold text-xl text-white">
+                The Kidpreneur Journey
+              </span>
+            </a>
+            <p className="text-xs text-slate-400 font-medium">
+              Founded & led by <strong className="text-slate-200">Dr. Sarah Sidani</strong>
             </p>
           </div>
           
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
-            <Link to="/portfolio" className="text-gray-500 hover:text-kidpreneur-teal transition-colors font-medium">
-              Portfolio & Activities
-            </Link>
+          {/* Main Navigation Links */}
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-semibold text-slate-300">
+            <a href="#about" className="hover:text-amber-400 transition-colors">
+              About
+            </a>
+            <a href="#pathways" className="hover:text-amber-400 transition-colors">
+              Pathways
+            </a>
+            <a href="#skills" className="hover:text-amber-400 transition-colors">
+              Skills We Teach
+            </a>
+            <a href="#blog" className="hover:text-amber-400 transition-colors">
+              Blog
+            </a>
+            <a href="#contact" className="hover:text-amber-400 transition-colors">
+              Contact
+            </a>
+            <a href="/portfolio" className="hover:text-teal-400 transition-colors">
+              Portfolio
+            </a>
+          </div>
+
+          {/* Social Links */}
+          <div className="flex items-center gap-3">
             <a 
               href="https://www.instagram.com/kidpreneur.journey/" 
               target="_blank" 
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-gray-600 hover:text-pink-600 font-semibold transition-colors bg-pink-50/60 hover:bg-pink-50 px-3 py-1 rounded-full border border-pink-100"
+              className="w-10 h-10 rounded-full bg-slate-800 hover:bg-pink-600 text-white flex items-center justify-center transition-colors border border-slate-700"
+              title="Instagram"
             >
-              <InstagramIcon className="w-4 h-4 text-pink-600" />
-              <span>@kidpreneur.journey</span>
+              <FaInstagram className="w-4 h-4" />
             </a>
-            <a href="/#contact" className="text-gray-500 hover:text-kidpreneur-blue transition-colors">
-              Contact Us
+            <a 
+              href="https://wa.me/96179332143" 
+              target="_blank" 
+              rel="noreferrer"
+              className="w-10 h-10 rounded-full bg-slate-800 hover:bg-emerald-600 text-white flex items-center justify-center transition-colors border border-slate-700"
+              title="WhatsApp"
+            >
+              <FaWhatsapp className="w-4 h-4" />
             </a>
           </div>
-          
-          <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} The Kidpreneur Journey. All rights reserved.
-          </p>
+        </div>
+
+        <div className="mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p>© 2026 The Kidpreneur Journey. All rights reserved.</p>
+          <p className="text-slate-400">Where young minds learn to think, create, and lead.</p>
         </div>
       </div>
     </footer>
