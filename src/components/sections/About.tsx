@@ -93,9 +93,6 @@ export default function About() {
 
               {/* Bio and Instagram */}
               <div className="flex-1 text-center sm:text-left">
-                <span className="inline-block bg-[#eef5ff] text-[#1c2455] text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full mb-2">
-                  Founder & Educator
-                </span>
                 <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#1c2455] mb-3">
                   Dr. Sarah Sidani
                 </h3>
