@@ -1,4 +1,4 @@
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Hero() {
@@ -13,19 +13,6 @@ export default function Hero() {
       <div className="absolute top-40 right-10 w-72 h-72 bg-kidpreneur-yellow/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <a
-          href="https://www.instagram.com/kidpreneur.journey/"
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 border border-pink-200/80 shadow-sm mb-8 text-slate-700 hover:text-pink-600 font-semibold text-xs sm:text-sm group transition-all hover:scale-105"
-        >
-          <span className="flex h-2 w-2 rounded-full bg-pink-500 animate-pulse" />
-          <span>Founded by Dr. Sarah Sidani</span>
-          <span className="text-gray-300">•</span>
-          <span className="text-pink-600 font-bold group-hover:underline">@kidpreneur.journey</span>
-          <Sparkles className="w-3.5 h-3.5 text-amber-500 ml-1" />
-        </a>
-        
         <h1 className="text-5xl md:text-7xl font-display font-bold text-kidpreneur-slate mb-6 leading-tight">
           Inspiring the Next <br />
           <span className="text-kidpreneur-blue">Generation of Leaders</span>
