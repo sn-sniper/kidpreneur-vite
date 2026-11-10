@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Send, CheckCircle2 } from "lucide-react";
+import { Send, CheckCircle2 } from "lucide-react";
 import { FaWhatsapp, FaInstagram } from "react-icons/fa6";
 import { apiClient } from "../../services/api";
 
@@ -68,32 +68,34 @@ export default function Contact() {
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Direct Contact Cards with Strict Branding Colors */}
+          {/* Direct Contact Cards (2 Instagram + 1 WhatsApp) */}
           <div className="lg:col-span-5 space-y-4">
-            {/* Email Card - Yellow Brand Accent */}
+            {/* Card 1: Instagram (The Kidpreneur Journey) */}
             <a
-              href="mailto:hello@the-kidpreneur-journey.com?subject=The%20Kidpreneur%20Journey"
+              href="https://www.instagram.com/kidpreneur.journey/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block bg-white border-2 border-[#1c2455] rounded-[20px] p-5 sm:p-6 shadow-[3px_3px_0_#1c2455] hover:shadow-[5px_5px_0_#1c2455] hover:-translate-y-0.5 transition-all"
             >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-[#ffc93c] border-2 border-[#1c2455] flex items-center justify-center text-[#1c2455] shrink-0">
-                  <Mail className="w-6 h-6" />
+                  <FaInstagram className="w-6 h-6" />
                 </div>
                 <div>
                   <span className="text-xs font-extrabold uppercase tracking-wider text-[#4d5580]">
-                    Email Us
+                    Instagram
                   </span>
                   <div className="text-base sm:text-lg font-bold text-[#1c2455]">
-                    hello@the-kidpreneur-journey.com
+                    @kidpreneur.journey
                   </div>
                   <p className="text-xs text-[#4d5580] mt-1">
-                    We reply within 24 hours.
+                    The Kidpreneur Journey official page.
                   </p>
                 </div>
               </div>
             </a>
 
-            {/* WhatsApp Card - Blue Brand Accent */}
+            {/* Card 2: WhatsApp (+961 79 332 143) */}
             <a
               href="https://wa.me/96179332143"
               target="_blank"
@@ -118,7 +120,7 @@ export default function Contact() {
               </div>
             </a>
 
-            {/* Instagram Link (Dr. Sarah) - Navy Brand Accent */}
+            {/* Card 3: Instagram (Dr. Sarah Sidani) */}
             <a
               href="https://www.instagram.com/dr.sarahsidani/"
               target="_blank"
@@ -137,7 +139,7 @@ export default function Contact() {
                     @dr.sarahsidani
                   </div>
                   <p className="text-xs text-[#4d5580] mt-1">
-                    Stories, live workshops & behind the scenes.
+                    Dr. Sarah Sidani personal & behind the scenes.
                   </p>
                 </div>
               </div>
@@ -155,7 +157,7 @@ export default function Contact() {
 
             {success ? (
               <div className="p-6 bg-[#eef5ff] border-2 border-[#2f7de1] rounded-2xl text-center space-y-2">
-                <CheckCircle2 className="w-10 h-10 text-[#2f7de1] mx-auto" />
+                <CheckCircle2 className="w-10 h-10 text-[#2f7de1] mx-auto shrink-0" />
                 <h3 className="font-display text-xl font-bold text-[#1c2455]">
                   Message Sent!
                 </h3>
@@ -165,7 +167,7 @@ export default function Contact() {
                 <button
                   type="button"
                   onClick={() => setSuccess(false)}
-                  className="btn-alt text-xs mt-3"
+                  className="btn-alt text-xs mt-3 inline-flex items-center justify-center whitespace-nowrap"
                 >
                   Send another message
                 </button>
@@ -257,12 +259,13 @@ export default function Contact() {
                   />
                 </div>
 
+                {/* Send Message Button - Icon and text strictly side-by-side on one line */}
                 <button
                   type="submit"
                   disabled={loading}
-                  className="btn-sun text-sm flex items-center justify-center gap-2 w-full sm:w-auto px-8"
+                  className="btn-sun text-sm inline-flex items-center justify-center gap-2 whitespace-nowrap w-full sm:w-auto px-8"
                 >
-                  <Send className="w-4 h-4" />
+                  <Send className="w-4 h-4 shrink-0" />
                   <span>{loading ? "Sending..." : "Send Message"}</span>
                 </button>
               </form>

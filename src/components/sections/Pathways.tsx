@@ -52,10 +52,10 @@ export default function Pathways() {
                 </p>
                 <a
                   href="/portfolio"
-                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#2f7de1] hover:underline"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#2f7de1] hover:underline whitespace-nowrap"
                 >
                   <span>View past workshops & photos</span>
-                  <span>→</span>
+                  <span className="shrink-0">→</span>
                 </a>
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function Pathways() {
                 e.preventDefault();
                 scrollTo("contact");
               }}
-              className="btn-sun text-sm"
+              className="btn-sun text-sm inline-flex items-center justify-center whitespace-nowrap"
             >
               Ask about enrollment
             </a>
@@ -146,7 +146,7 @@ export default function Pathways() {
                 e.preventDefault();
                 scrollTo("contact");
               }}
-              className="btn-sun text-sm"
+              className="btn-sun text-sm inline-flex items-center justify-center whitespace-nowrap"
             >
               Request a collaboration
             </a>

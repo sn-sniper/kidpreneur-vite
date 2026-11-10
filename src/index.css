@@ -66,7 +66,11 @@ h1, h2, h3, h4 {
 
 /* Custom design components matching new HTML */
 .btn-sun {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
   background: var(--sun);
   color: var(--sun-ink);
   font-weight: 700;
@@ -84,7 +88,11 @@ h1, h2, h3, h4 {
 }
 
 .btn-alt {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
   background: transparent;
   color: var(--ink);
   font-weight: 700;

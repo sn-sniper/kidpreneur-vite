@@ -34,17 +34,17 @@ export default function Hero() {
           action.
         </p>
 
-        {/* CTA Buttons (Updated per user instructions) */}
+        {/* CTA Buttons (Strictly inline, never wrapping icons) */}
         <div className="flex flex-wrap items-center gap-3.5 mb-10">
           {/* Explore Lab Button linking to lab.the-kidpreneur-journey.com */}
           <a
             href={LAB_PORTAL_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-sun text-base inline-flex items-center gap-2"
+            className="btn-sun text-base inline-flex items-center justify-center gap-2 whitespace-nowrap"
           >
             <span>Explore Lab</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 shrink-0" />
           </a>
 
           {/* Checkout Pathways Button linking to #pathways */}
@@ -54,7 +54,7 @@ export default function Hero() {
               e.preventDefault();
               scrollTo("pathways");
             }}
-            className="btn-alt text-base"
+            className="btn-alt text-base inline-flex items-center justify-center whitespace-nowrap"
           >
             Checkout Pathways
           </a>
@@ -96,10 +96,10 @@ export default function Hero() {
                 e.preventDefault();
                 scrollTo("pathways");
               }}
-              className="inline-flex items-center gap-1.5 font-bold text-sm text-[#2f7de1] hover:underline"
+              className="inline-flex items-center gap-1.5 font-bold text-sm text-[#2f7de1] hover:underline whitespace-nowrap"
             >
               <span>View workshops</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 shrink-0" />
             </a>
           </article>
 
@@ -117,10 +117,10 @@ export default function Hero() {
                 e.preventDefault();
                 scrollTo("pathways");
               }}
-              className="inline-flex items-center gap-1.5 font-bold text-sm text-[#1c2455] hover:underline"
+              className="inline-flex items-center gap-1.5 font-bold text-sm text-[#1c2455] hover:underline whitespace-nowrap"
             >
               <span>Explore courses</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 shrink-0" />
             </a>
           </article>
 
@@ -138,10 +138,10 @@ export default function Hero() {
                 e.preventDefault();
                 scrollTo("pathways");
               }}
-              className="inline-flex items-center gap-1.5 font-bold text-sm text-[#2f7de1] hover:underline"
+              className="inline-flex items-center gap-1.5 font-bold text-sm text-[#2f7de1] hover:underline whitespace-nowrap"
             >
               <span>Partner with us</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 shrink-0" />
             </a>
           </article>
         </div>
@@ -176,7 +176,7 @@ export default function Hero() {
               e.preventDefault();
               scrollTo("skills");
             }}
-            className="btn-alt text-sm"
+            className="btn-alt text-sm inline-flex items-center justify-center whitespace-nowrap"
           >
             See all skills
           </a>

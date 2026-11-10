@@ -57,9 +57,9 @@ export default function BlogSection() {
             {/* Back button */}
             <button
               onClick={closeBlog}
-              className="inline-flex items-center gap-2 font-bold text-sm text-[#1c2455] hover:text-[#2f7de1] mb-6 transition-colors"
+              className="inline-flex items-center gap-2 font-bold text-sm text-[#1c2455] hover:text-[#2f7de1] mb-6 transition-colors whitespace-nowrap"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-4 h-4 shrink-0" />
               <span>Back to the blog</span>
             </button>
 
@@ -168,9 +168,9 @@ export default function BlogSection() {
                   {/* Read Blog CTA (Item 4 in Notes-To-Change.md: "read blog not read article") */}
                   <div className="pt-4 border-t border-[#dfe6f5] flex items-center justify-between text-xs font-bold text-[#1c2455]">
                     <span className="text-[#4d5580]">By {post.author}</span>
-                    <span className="inline-flex items-center gap-1 text-[#2f7de1]">
+                    <span className="inline-flex items-center gap-1 text-[#2f7de1] whitespace-nowrap">
                       <span>Read blog</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                     </span>
                   </div>
                 </article>
