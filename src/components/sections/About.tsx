@@ -97,7 +97,7 @@ export default function About() {
                   Dr. Sarah Sidani
                 </h3>
                 <p className="text-sm font-bold text-[#2f7de1] mb-3">
-                  Founder of The Kidpreneur Journey · Entrepreneurship Educator & Expert
+                  Entrepreneurship Educator & Expert
                 </p>
                 <p className="text-base text-[#4d5580] leading-relaxed mb-5 max-w-[650px]">
                   Holding a PhD in Entrepreneurship, Dr. Sarah Sidani founded The Kidpreneur Journey to empower children with the mindset, confidence, and real-world skills to turn ideas into action.

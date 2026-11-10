@@ -29,7 +29,7 @@ export default function Pathways() {
               Interactive, high-energy sessions where children practice entrepreneurial thinking in a single experience.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2 border-t border-[#dfe6f5]">
+            <div className="pt-2 border-t border-[#dfe6f5]">
               {/* Upcoming activities */}
               <div>
                 <h3 className="font-display text-lg font-bold text-[#1c2455] mb-2 flex items-center gap-2">
@@ -39,24 +39,6 @@ export default function Pathways() {
                 <p className="inline-block bg-[#eef5ff] border-2 border-dashed border-[#1c2455]/30 rounded-xl px-4 py-2 text-xs sm:text-sm text-[#4d5580] font-semibold">
                   New dates are on the way. Message us to join the list.
                 </p>
-              </div>
-
-              {/* Past activities */}
-              <div>
-                <h3 className="font-display text-lg font-bold text-[#1c2455] mb-2 flex items-center gap-2">
-                  <span>🏆</span>
-                  <span>Past activities</span>
-                </h3>
-                <p className="text-sm text-[#4d5580] leading-relaxed mb-3">
-                  A look back at our recent workshops: kids brainstorming, building prototypes, and pitching their ideas to the room.
-                </p>
-                <a
-                  href="/portfolio"
-                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#2f7de1] hover:underline whitespace-nowrap"
-                >
-                  <span>View past workshops & photos</span>
-                  <span className="shrink-0">→</span>
-                </a>
               </div>
             </div>
           </div>
@@ -87,11 +69,9 @@ export default function Pathways() {
             </div>
 
             <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollTo("contact");
-              }}
+              href="https://lab.the-kidpreneur-journey.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-sun text-sm inline-flex items-center justify-center whitespace-nowrap"
             >
               Ask about enrollment

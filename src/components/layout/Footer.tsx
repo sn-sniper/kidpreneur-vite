@@ -89,12 +89,6 @@ export default function Footer() {
             >
               Contact
             </a>
-            <a
-              href="/portfolio"
-              className="hover:text-[#ffc93c] transition-colors text-[#ffc93c]"
-            >
-              Portfolio
-            </a>
           </div>
 
           {/* Social Links */}
