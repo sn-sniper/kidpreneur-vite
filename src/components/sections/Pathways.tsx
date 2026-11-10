@@ -20,7 +20,7 @@ export default function Pathways() {
         </p>
 
         <div className="space-y-8">
-          {/* Card 1: Workshops */}
+          {/* Card 1: Workshops - Brand Blue Accent */}
           <div className="bg-white border-2 border-[#1c2455] border-t-[10px] border-t-[#2f7de1] rounded-[20px] p-6 sm:p-8 shadow-[3px_3px_0_#1c2455]">
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#1c2455] mb-2">
               Workshops
@@ -36,7 +36,7 @@ export default function Pathways() {
                   <span>📅</span>
                   <span>Upcoming activities</span>
                 </h3>
-                <p className="inline-block bg-[#eef5ff] border-2 border-dashed border-[#4d5580] rounded-xl px-4 py-2 text-xs sm:text-sm text-[#4d5580] font-semibold">
+                <p className="inline-block bg-[#eef5ff] border-2 border-dashed border-[#1c2455]/30 rounded-xl px-4 py-2 text-xs sm:text-sm text-[#4d5580] font-semibold">
                   New dates are on the way. Message us to join the list.
                 </p>
               </div>
@@ -61,8 +61,8 @@ export default function Pathways() {
             </div>
           </div>
 
-          {/* Card 2: Courses */}
-          <div className="bg-white border-2 border-[#1c2455] border-t-[10px] border-t-[#0f9b8e] rounded-[20px] p-6 sm:p-8 shadow-[3px_3px_0_#1c2455]">
+          {/* Card 2: Courses - Brand Yellow Accent */}
+          <div className="bg-white border-2 border-[#1c2455] border-t-[10px] border-t-[#ffc93c] rounded-[20px] p-6 sm:p-8 shadow-[3px_3px_0_#1c2455]">
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#1c2455] mb-2">
               Courses
             </h2>
@@ -71,14 +71,14 @@ export default function Pathways() {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-              <div className="border-l-[6px] border-[#0f9b8e] pl-4 py-1">
+              <div className="border-l-[6px] border-[#ffc93c] pl-4 py-1">
                 <h3 className="font-display text-lg font-bold text-[#1c2455] mb-1">Online courses</h3>
                 <p className="text-sm text-[#4d5580] leading-relaxed m-0">
                   Learn from anywhere with live guidance and interactive activities.
                 </p>
               </div>
 
-              <div className="border-l-[6px] border-[#0f9b8e] pl-4 py-1">
+              <div className="border-l-[6px] border-[#ffc93c] pl-4 py-1">
                 <h3 className="font-display text-lg font-bold text-[#1c2455] mb-1">In-person courses</h3>
                 <p className="text-sm text-[#4d5580] leading-relaxed m-0">
                   Face-to-face, collaborative learning in a creative, supportive space.
@@ -98,41 +98,41 @@ export default function Pathways() {
             </a>
           </div>
 
-          {/* Card 3: Collabs */}
-          <div className="bg-white border-2 border-[#1c2455] border-t-[10px] border-t-[#7b4bd1] rounded-[20px] p-6 sm:p-8 shadow-[3px_3px_0_#1c2455]">
+          {/* Card 3: Collabs - Brand Navy Accent */}
+          <div className="bg-white border-2 border-[#1c2455] border-t-[10px] border-t-[#1c2455] rounded-[20px] p-6 sm:p-8 shadow-[3px_3px_0_#1c2455]">
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#1c2455] mb-2">
               Collabs
             </h2>
             <p className="text-base text-[#4d5580] leading-relaxed mb-4 max-w-[750px]">
               Bring The Kidpreneur Journey to your community. We design programs to fit your group’s age, goals, and schedule.
             </p>
-            <p className="text-sm font-bold uppercase tracking-wider text-[#7b4bd1] mb-4">
+            <p className="text-sm font-bold uppercase tracking-wider text-[#2f7de1] mb-4">
               Bring Entrepreneurship to life in your:
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <div className="border-l-[6px] border-[#7b4bd1] pl-3 py-1">
+              <div className="border-l-[6px] border-[#2f7de1] pl-3 py-1">
                 <h3 className="font-display text-base font-bold text-[#1c2455] mb-1">Schools</h3>
                 <p className="text-xs sm:text-sm text-[#4d5580] leading-relaxed m-0">
                   Enrich your curriculum with entrepreneurship and life skills.
                 </p>
               </div>
 
-              <div className="border-l-[6px] border-[#7b4bd1] pl-3 py-1">
+              <div className="border-l-[6px] border-[#2f7de1] pl-3 py-1">
                 <h3 className="font-display text-base font-bold text-[#1c2455] mb-1">Scouts</h3>
                 <p className="text-xs sm:text-sm text-[#4d5580] leading-relaxed m-0">
                   Add problem-solving and teamwork challenges to your programs.
                 </p>
               </div>
 
-              <div className="border-l-[6px] border-[#7b4bd1] pl-3 py-1">
+              <div className="border-l-[6px] border-[#2f7de1] pl-3 py-1">
                 <h3 className="font-display text-base font-bold text-[#1c2455] mb-1">Sports academies</h3>
                 <p className="text-xs sm:text-sm text-[#4d5580] leading-relaxed m-0">
                   Help young athletes build leadership, resilience, and communication.
                 </p>
               </div>
 
-              <div className="border-l-[6px] border-[#7b4bd1] pl-3 py-1">
+              <div className="border-l-[6px] border-[#2f7de1] pl-3 py-1">
                 <h3 className="font-display text-base font-bold text-[#1c2455] mb-1">Camps</h3>
                 <p className="text-xs sm:text-sm text-[#4d5580] leading-relaxed m-0">
                   Make your summer or seasonal program memorable and meaningful.

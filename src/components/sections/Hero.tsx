@@ -9,11 +9,13 @@ export default function Hero() {
     }
   };
 
+  const LAB_PORTAL_URL = "https://lab.the-kidpreneur-journey.com";
+
   return (
     <section id="home" className="scroll-mt-24 pt-12 sm:pt-16 pb-16 bg-[#fffdf7]">
       {/* Hero Header Area */}
       <div className="max-w-[1040px] mx-auto px-4 sm:px-6">
-        {/* Subheader Pill (Item 1 in Notes-To-Change.md) */}
+        {/* Subheader Pill */}
         <div className="mb-4">
           <span className="inline-block bg-[#eef5ff] text-[#1c2455] border border-[#dfe6f5] font-extrabold text-xs sm:text-sm px-4 py-1.5 rounded-full uppercase tracking-wider">
             Where Kids Turn Ideas into Actions
@@ -32,61 +34,30 @@ export default function Hero() {
           action.
         </p>
 
-        {/* CTA Buttons */}
+        {/* CTA Buttons (Updated per user instructions) */}
         <div className="flex flex-wrap items-center gap-3.5 mb-10">
+          {/* Explore Lab Button linking to lab.the-kidpreneur-journey.com */}
+          <a
+            href={LAB_PORTAL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-sun text-base inline-flex items-center gap-2"
+          >
+            <span>Explore Lab</span>
+            <ArrowRight className="w-4 h-4" />
+          </a>
+
+          {/* Checkout Pathways Button linking to #pathways */}
           <a
             href="#pathways"
             onClick={(e) => {
               e.preventDefault();
               scrollTo("pathways");
             }}
-            className="btn-sun text-base"
-          >
-            Explore pathways
-          </a>
-          <a
-            href="#about"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollTo("about");
-            }}
             className="btn-alt text-base"
           >
-            Meet Dr. Sarah
+            Checkout Pathways
           </a>
-        </div>
-
-        {/* Interactive SVG Path: Spark 💡 -> Build 🛠️ -> Pitch 🎤 */}
-        <div className="w-full my-6">
-          <svg
-            className="w-full h-auto max-h-36 sm:max-h-44"
-            viewBox="0 0 900 150"
-            role="img"
-            aria-label="A path from a spark of an idea, through building, to a pitch on stage"
-          >
-            <path
-              d="M40 100 C200 20 300 150 450 80 S740 20 860 90"
-              fill="none"
-              stroke="#1c2455"
-              strokeWidth="4"
-              strokeDasharray="4 14"
-              strokeLinecap="round"
-            />
-            {/* Spark */}
-            <circle cx="40" cy="100" r="26" fill="#ffc93c" stroke="#1c2455" strokeWidth="3" />
-            <text x="40" y="109" textAnchor="middle" fontSize="26">💡</text>
-            <text x="40" y="142" textAnchor="middle" fontWeight="bold" fontSize="13" fill="#1c2455">Spark</text>
-
-            {/* Build */}
-            <circle cx="450" cy="80" r="26" fill="#0f9b8e" stroke="#1c2455" strokeWidth="3" />
-            <text x="450" y="89" textAnchor="middle" fontSize="26">🛠️</text>
-            <text x="450" y="122" textAnchor="middle" fontWeight="bold" fontSize="13" fill="#1c2455">Build</text>
-
-            {/* Pitch */}
-            <circle cx="860" cy="90" r="26" fill="#7b4bd1" stroke="#1c2455" strokeWidth="3" />
-            <text x="860" y="99" textAnchor="middle" fontSize="26">🎤</text>
-            <text x="860" y="132" textAnchor="middle" fontWeight="bold" fontSize="13" fill="#1c2455">Pitch</text>
-          </svg>
         </div>
       </div>
 
@@ -105,13 +76,13 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Choose your pathway Preview Cards */}
+      {/* Choose your pathway Preview Cards (Strict Branding Colors) */}
       <div className="max-w-[1040px] mx-auto px-4 sm:px-6 mt-12 sm:mt-16">
         <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#1c2455] mb-6">
           Choose your pathway
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {/* Card 1: Workshops */}
+          {/* Card 1: Workshops - Brand Blue Accent */}
           <article className="bg-white border-2 border-[#1c2455] border-t-[10px] border-t-[#2f7de1] rounded-[20px] p-6 shadow-[3px_3px_0_#1c2455] flex flex-col justify-between">
             <div>
               <h3 className="font-display text-xl font-bold text-[#1c2455] mb-2">Workshops</h3>
@@ -132,8 +103,8 @@ export default function Hero() {
             </a>
           </article>
 
-          {/* Card 2: Courses */}
-          <article className="bg-white border-2 border-[#1c2455] border-t-[10px] border-t-[#0f9b8e] rounded-[20px] p-6 shadow-[3px_3px_0_#1c2455] flex flex-col justify-between">
+          {/* Card 2: Courses - Brand Yellow Accent */}
+          <article className="bg-white border-2 border-[#1c2455] border-t-[10px] border-t-[#ffc93c] rounded-[20px] p-6 shadow-[3px_3px_0_#1c2455] flex flex-col justify-between">
             <div>
               <h3 className="font-display text-xl font-bold text-[#1c2455] mb-2">Courses</h3>
               <p className="text-sm text-[#4d5580] leading-relaxed mb-4">
@@ -146,15 +117,15 @@ export default function Hero() {
                 e.preventDefault();
                 scrollTo("pathways");
               }}
-              className="inline-flex items-center gap-1.5 font-bold text-sm text-[#0f9b8e] hover:underline"
+              className="inline-flex items-center gap-1.5 font-bold text-sm text-[#1c2455] hover:underline"
             >
               <span>Explore courses</span>
               <ArrowRight className="w-4 h-4" />
             </a>
           </article>
 
-          {/* Card 3: Collabs */}
-          <article className="bg-white border-2 border-[#1c2455] border-t-[10px] border-t-[#7b4bd1] rounded-[20px] p-6 shadow-[3px_3px_0_#1c2455] flex flex-col justify-between">
+          {/* Card 3: Collabs - Brand Navy Accent */}
+          <article className="bg-white border-2 border-[#1c2455] border-t-[10px] border-t-[#1c2455] rounded-[20px] p-6 shadow-[3px_3px_0_#1c2455] flex flex-col justify-between">
             <div>
               <h3 className="font-display text-xl font-bold text-[#1c2455] mb-2">Collabs</h3>
               <p className="text-sm text-[#4d5580] leading-relaxed mb-4">
@@ -167,7 +138,7 @@ export default function Hero() {
                 e.preventDefault();
                 scrollTo("pathways");
               }}
-              className="inline-flex items-center gap-1.5 font-bold text-sm text-[#7b4bd1] hover:underline"
+              className="inline-flex items-center gap-1.5 font-bold text-sm text-[#2f7de1] hover:underline"
             >
               <span>Partner with us</span>
               <ArrowRight className="w-4 h-4" />

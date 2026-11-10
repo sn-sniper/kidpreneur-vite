@@ -68,9 +68,9 @@ export default function Contact() {
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Direct Contact Cards */}
+          {/* Direct Contact Cards with Strict Branding Colors */}
           <div className="lg:col-span-5 space-y-4">
-            {/* Email Card */}
+            {/* Email Card - Yellow Brand Accent */}
             <a
               href="mailto:hello@the-kidpreneur-journey.com?subject=The%20Kidpreneur%20Journey"
               className="block bg-white border-2 border-[#1c2455] rounded-[20px] p-5 sm:p-6 shadow-[3px_3px_0_#1c2455] hover:shadow-[5px_5px_0_#1c2455] hover:-translate-y-0.5 transition-all"
@@ -93,7 +93,7 @@ export default function Contact() {
               </div>
             </a>
 
-            {/* WhatsApp Card */}
+            {/* WhatsApp Card - Blue Brand Accent */}
             <a
               href="https://wa.me/96179332143"
               target="_blank"
@@ -101,7 +101,7 @@ export default function Contact() {
               className="block bg-white border-2 border-[#1c2455] rounded-[20px] p-5 sm:p-6 shadow-[3px_3px_0_#1c2455] hover:shadow-[5px_5px_0_#1c2455] hover:-translate-y-0.5 transition-all"
             >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#0f9b8e] border-2 border-[#1c2455] flex items-center justify-center text-white shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-[#2f7de1] border-2 border-[#1c2455] flex items-center justify-center text-white shrink-0">
                   <FaWhatsapp className="w-6 h-6" />
                 </div>
                 <div>
@@ -118,7 +118,7 @@ export default function Contact() {
               </div>
             </a>
 
-            {/* Instagram Link (Dr. Sarah & Journey) */}
+            {/* Instagram Link (Dr. Sarah) - Navy Brand Accent */}
             <a
               href="https://www.instagram.com/dr.sarahsidani/"
               target="_blank"
@@ -126,7 +126,7 @@ export default function Contact() {
               className="block bg-white border-2 border-[#1c2455] rounded-[20px] p-5 sm:p-6 shadow-[3px_3px_0_#1c2455] hover:shadow-[5px_5px_0_#1c2455] hover:-translate-y-0.5 transition-all"
             >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#7b4bd1] border-2 border-[#1c2455] flex items-center justify-center text-white shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-[#1c2455] border-2 border-[#1c2455] flex items-center justify-center text-[#ffc93c] shrink-0">
                   <FaInstagram className="w-6 h-6" />
                 </div>
                 <div>
@@ -154,8 +154,8 @@ export default function Contact() {
             </p>
 
             {success ? (
-              <div className="p-6 bg-[#eef5ff] border-2 border-[#0f9b8e] rounded-2xl text-center space-y-2">
-                <CheckCircle2 className="w-10 h-10 text-[#0f9b8e] mx-auto" />
+              <div className="p-6 bg-[#eef5ff] border-2 border-[#2f7de1] rounded-2xl text-center space-y-2">
+                <CheckCircle2 className="w-10 h-10 text-[#2f7de1] mx-auto" />
                 <h3 className="font-display text-xl font-bold text-[#1c2455]">
                   Message Sent!
                 </h3>

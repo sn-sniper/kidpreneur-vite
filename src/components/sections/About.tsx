@@ -14,7 +14,7 @@ export default function About() {
           We believe young people don’t need to wait until adulthood to create value. With the right guidance, they can start now.
         </p>
 
-        {/* Mission & Vision Cards */}
+        {/* Mission & Vision Cards (Brand Blue & Brand Yellow) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-14">
           <div className="bg-white border-2 border-[#1c2455] border-t-[10px] border-t-[#2f7de1] rounded-[20px] p-6 shadow-[3px_3px_0_#1c2455]">
             <h3 className="font-display text-2xl font-bold text-[#1c2455] mb-2">Our mission</h3>
@@ -23,7 +23,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="bg-white border-2 border-[#1c2455] border-t-[10px] border-t-[#0f9b8e] rounded-[20px] p-6 shadow-[3px_3px_0_#1c2455]">
+          <div className="bg-white border-2 border-[#1c2455] border-t-[10px] border-t-[#ffc93c] rounded-[20px] p-6 shadow-[3px_3px_0_#1c2455]">
             <h3 className="font-display text-2xl font-bold text-[#1c2455] mb-2">Our vision</h3>
             <p className="text-base text-[#4d5580] leading-relaxed">
               A world where every child sees themselves as capable of spotting opportunities, solving problems, and making a difference.
@@ -86,9 +86,7 @@ export default function About() {
                   alt="Dr. Sarah Sidani - Founder"
                   className="w-full h-full object-cover object-top"
                   onError={(e) => {
-                    // Fallback to sara.webp with right-half framing if needed
-                    e.currentTarget.src = "/sara.webp";
-                    e.currentTarget.style.objectPosition = "75% center";
+                    e.currentTarget.src = "/About.png";
                   }}
                 />
               </div>
@@ -105,7 +103,7 @@ export default function About() {
                   Dr. Sarah Sidani created The Kidpreneur Journey to give children the tools to turn curiosity into action. She believes that when children are trusted with real challenges, they rise to meet them.
                 </p>
 
-                {/* Direct Link to Dr. Sarah's Instagram (Item 3 in Notes-To-Change.md) */}
+                {/* Direct Link to Dr. Sarah's Instagram */}
                 <a
                   href="https://www.instagram.com/dr.sarahsidani/"
                   target="_blank"

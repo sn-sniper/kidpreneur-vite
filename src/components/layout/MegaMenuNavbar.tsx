@@ -30,31 +30,26 @@ export default function MegaMenuNavbar() {
   return (
     <header className="sticky top-0 z-50 bg-[#fffdf7]/95 backdrop-blur-md border-b-2 border-[#dfe6f5]">
       <div className="max-w-[1040px] mx-auto px-4 sm:px-6 h-18 flex items-center justify-between gap-4">
-        {/* Brand / Logo */}
+        {/* Single Official Brand Logo with 'By Dr. Sarah Sidani' (No duplicate text next to it) */}
         <a
           href="#home"
           onClick={(e) => {
             e.preventDefault();
             scrollTo("home");
           }}
-          className="flex items-center gap-2.5 font-display font-bold text-lg text-[#1c2455] hover:opacity-90 transition-opacity"
+          className="flex items-center hover:opacity-90 transition-opacity"
+          aria-label="The Kidpreneur Journey - By Dr. Sarah Sidani Home"
         >
           <img
-            src="/kidpreneur-logo-header-56h@2x.png"
-            alt="The Kidpreneur Journey"
-            className="h-10 sm:h-11 w-auto object-contain"
-            onError={(e) => {
-              (e.currentTarget as HTMLElement).style.display = "none";
-            }}
+            src="/kidpreneur-logo-with-byline.png"
+            alt="The Kidpreneur Journey - By Dr. Sarah Sidani"
+            className="h-10 sm:h-12 w-auto object-contain"
           />
-          <span className="hidden sm:inline font-display font-bold text-lg text-[#1c2455]">
-            The Kidpreneur Journey
-          </span>
         </a>
 
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center gap-1.5" aria-label="Main">
-          {/* About (Direct Link - NO dropdown as requested) */}
+          {/* About (Direct Link - NO dropdown) */}
           <a
             href="#about"
             onClick={(e) => {
@@ -70,7 +65,7 @@ export default function MegaMenuNavbar() {
             About
           </a>
 
-          {/* Pathways with Floating Absolute Dropdown (NO Explore More column) */}
+          {/* Pathways with Floating Absolute Dropdown (Only 3 pathways, no 'explore more') */}
           <div
             className="relative"
             onMouseEnter={() => setPathwaysOpen(true)}
@@ -93,7 +88,7 @@ export default function MegaMenuNavbar() {
               />
             </button>
 
-            {/* Floating Dropdown - positioned absolute so it NEVER deforms/expands navbar */}
+            {/* Floating Dropdown - positioned absolute so it NEVER shifts or expands navbar */}
             {pathwaysOpen && (
               <div className="absolute top-full left-0 mt-1 w-80 bg-white border-2 border-[#1c2455] rounded-2xl shadow-[4px_4px_0_#1c2455] p-3 z-50">
                 <div className="text-[11px] font-extrabold uppercase tracking-wider text-[#4d5580] px-3 py-1">
@@ -129,7 +124,7 @@ export default function MegaMenuNavbar() {
                   >
                     <span className="text-xl">📚</span>
                     <div>
-                      <div className="text-sm font-bold text-[#1c2455] group-hover:text-[#0f9b8e]">
+                      <div className="text-sm font-bold text-[#1c2455] group-hover:text-[#2f7de1]">
                         Courses
                       </div>
                       <div className="text-xs text-[#4d5580]">
@@ -148,7 +143,7 @@ export default function MegaMenuNavbar() {
                   >
                     <span className="text-xl">🤝</span>
                     <div>
-                      <div className="text-sm font-bold text-[#1c2455] group-hover:text-[#7b4bd1]">
+                      <div className="text-sm font-bold text-[#1c2455] group-hover:text-[#2f7de1]">
                         Collabs
                       </div>
                       <div className="text-xs text-[#4d5580]">
@@ -220,7 +215,7 @@ export default function MegaMenuNavbar() {
         </div>
       </div>
 
-      {/* Mobile Menu Drawer (Smooth Slide Down) */}
+      {/* Mobile Menu Drawer */}
       {mobileOpen && (
         <div className="md:hidden border-t-2 border-[#dfe6f5] bg-[#fffdf7] px-4 py-4 space-y-2 shadow-lg">
           <button

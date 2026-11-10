@@ -31,9 +31,6 @@ export default function Footer() {
                   (e.currentTarget as HTMLElement).style.display = "none";
                 }}
               />
-              <span className="font-display font-bold text-xl text-[#fffdf7]">
-                The Kidpreneur Journey
-              </span>
             </a>
             <p className="text-xs text-[#dfe6f5]">
               Founded & led by <strong className="text-[#ffc93c]">Dr. Sarah Sidani</strong>
@@ -94,7 +91,7 @@ export default function Footer() {
             </a>
             <a
               href="/portfolio"
-              className="hover:text-[#ffc93c] transition-colors text-[#3cd1c2]"
+              className="hover:text-[#ffc93c] transition-colors text-[#ffc93c]"
             >
               Portfolio
             </a>
@@ -124,7 +121,7 @@ export default function Footer() {
               href="https://wa.me/96179332143"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-[#12163a] hover:bg-[#0f9b8e] text-white flex items-center justify-center transition-colors border border-[#2c3570]"
+              className="w-10 h-10 rounded-full bg-[#12163a] hover:bg-[#2f7de1] text-white flex items-center justify-center transition-colors border border-[#2c3570]"
               title="Chat on WhatsApp"
             >
               <FaWhatsapp className="w-4 h-4" />
