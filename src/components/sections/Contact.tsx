@@ -236,7 +236,7 @@ export default function Contact() {
                       className="w-full px-4 py-2.5 rounded-xl border-2 border-[#1c2455] text-sm text-[#1c2455] bg-white focus:outline-none focus:ring-2 focus:ring-[#2f7de1]"
                     >
                       <option value="Workshops">Workshops</option>
-                      <option value="Courses">Courses (Online / In-Person)</option>
+                      <option value="Courses">Courses (Online)</option>
                       <option value="Collabs">Collabs (Schools, Scouts, Camps)</option>
                       <option value="General">General Question</option>
                     </select>

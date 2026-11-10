@@ -128,7 +128,7 @@ export default function MegaMenuNavbar() {
                         Courses
                       </div>
                       <div className="text-xs text-[#4d5580]">
-                        Online & in-person progressive learning journeys
+                        Online progressive learning journeys
                       </div>
                     </div>
                   </a>

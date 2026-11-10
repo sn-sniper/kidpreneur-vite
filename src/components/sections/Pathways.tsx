@@ -52,18 +52,11 @@ export default function Pathways() {
               In-depth learning journeys that build skills week by week and end with a final pitch.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div className="mb-6">
               <div className="border-l-[6px] border-[#ffc93c] pl-4 py-1">
                 <h3 className="font-display text-lg font-bold text-[#1c2455] mb-1">Online courses</h3>
                 <p className="text-sm text-[#4d5580] leading-relaxed m-0">
                   Learn from anywhere with live guidance and interactive activities.
-                </p>
-              </div>
-
-              <div className="border-l-[6px] border-[#ffc93c] pl-4 py-1">
-                <h3 className="font-display text-lg font-bold text-[#1c2455] mb-1">In-person courses</h3>
-                <p className="text-sm text-[#4d5580] leading-relaxed m-0">
-                  Face-to-face, collaborative learning in a creative, supportive space.
                 </p>
               </div>
             </div>
