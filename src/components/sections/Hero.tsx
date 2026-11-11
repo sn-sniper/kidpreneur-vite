@@ -1,5 +1,3 @@
-import { ArrowRight } from "lucide-react";
-
 export default function Hero() {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -8,8 +6,6 @@ export default function Hero() {
       window.history.pushState(null, "", `#${id}`);
     }
   };
-
-  const LAB_PORTAL_URL = "https://lab.the-kidpreneur-journey.com";
 
   return (
     <section id="home" className="scroll-mt-24 pt-12 sm:pt-16 pb-16 bg-[#fffdf7]">
@@ -36,16 +32,13 @@ export default function Hero() {
 
         {/* CTA Buttons (Strictly inline, never wrapping icons) */}
         <div className="flex flex-wrap items-center gap-3.5 mb-10">
-          {/* Explore Lab Button linking to lab.the-kidpreneur-journey.com */}
-          <a
-            href={LAB_PORTAL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-sun text-base inline-flex items-center justify-center gap-2 whitespace-nowrap"
-          >
+          {/* Explore Lab (Coming Soon) */}
+          <span className="btn-sun text-base inline-flex items-center justify-center gap-2.5 whitespace-nowrap cursor-default select-none">
             <span>Explore Lab</span>
-            <ArrowRight className="w-4 h-4 shrink-0" />
-          </a>
+            <span className="bg-[#1c2455] text-white text-[11px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+              Coming Soon
+            </span>
+          </span>
 
           {/* Checkout Pathways Button linking to #pathways */}
           <a
