@@ -231,3 +231,4 @@ npm run build      # Executes 'tsc -b && vite build' -> outputs to dist/
 # Deploys dist/ assets directly to Cloudflare Worker 'kidpreneur-vite'
 npx --prefix next-app wrangler deploy VITE/dist --name kidpreneur-vite --compatibility-date 2024-09-23
 ```
+
